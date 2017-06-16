@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "267833532191",
+    "firebase_url": "https://reidx-d29db.firebaseio.com",
+    "project_id": "reidx-d29db",
+    "storage_bucket": "reidx-d29db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:267833532191:android:d7c0477dafe72d34",
+        "android_client_info": {
+          "package_name": "com.uele.reidx.android.free"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "267833532191-sbdj1u9l02e1213b90trm0ch8501hufh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoZJN4fPcVWiQ-OS98kYPaw3EMhrMx1HU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

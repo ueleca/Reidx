@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/list_item_deal"
+    android:paddingBottom="@dimen/size_byte"
+    android:paddingLeft="@dimen/size_word"
+    android:paddingRight="@dimen/size_word"
+    android:paddingTop="@dimen/size_byte">
+
+    <ImageView
+        android:id="@+id/dealThumbnail"
+        android:layout_width="@dimen/deal_thumbnail_width"
+        android:layout_height="@dimen/deal_thumbnail_height"
+        android:layout_centerVertical="true" />
+
+    <TextView
+        android:id="@+id/typeOfDeal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/dealThumbnail"
+        android:layout_marginLeft="56dp"
+        android:alpha="0.87"
+        android:gravity="right"
+        android:padding="@dimen/size_half_byte"
+        android:textSize="@dimen/size_text_primary" />
+
+    <TextView
+        android:id="@+id/typeOfProperty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/typeOfDeal"
+        android:alpha="0.87"
+        android:padding="@dimen/size_half_byte"
+        android:textSize="@dimen/size_text_secondary" />
+
+    <TextView
+        android:id="@+id/province"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/typeOfProperty"
+        android:alpha="0.87"
+        android:padding="@dimen/size_half_byte"
+        android:textSize="@dimen/size_text_secondary" />
+
+    <TextView
+        android:id="@+id/city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/typeOfProperty"
+        android:alpha="0.87"
+        android:padding="@dimen/size_half_byte"
+        android:textSize="@dimen/size_text_secondary" />
+
+    <TextView
+        android:id="@+id/bedrooms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/typeOfProperty"
+        android:alpha="0.87"
+        android:padding="@dimen/size_half_byte"
+        android:textSize="@dimen/size_text_secondary" />
+
+    <TextView
+        android:id="@+id/bathrooms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/typeOfProperty"
+        android:alpha="0.87"
+        android:padding="@dimen/size_half_byte"
+        android:textSize="@dimen/size_text_secondary" />
+
+    <TextView
+        android:id="@+id/garage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/typeOfProperty"
+        android:alpha="0.87"
+        android:padding="@dimen/size_half_byte"
+        android:textSize="@dimen/size_text_secondary" />
+
+    <TextView
+        android:id="@+id/currentMarketPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/typeOfProperty"
+        android:alpha="0.87"
+        android:padding="@dimen/size_half_byte"
+        android:textSize="@dimen/size_text_secondary" />
+
+    <TextView
+        android:id="@+id/currentOfferSalePrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/typeOfProperty"
+        android:alpha="0.87"
+        android:padding="@dimen/size_half_byte"
+        android:textSize="@dimen/size_text_secondary" />
+
+    <TextView
+        android:id="@+id/grossIncome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/typeOfProperty"
+        android:alpha="0.87"
+        android:padding="@dimen/size_half_byte"
+        android:textSize="@dimen/size_text_secondary" />
+
+    <TextView
+        android:id="@+id/grossExpense"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/typeOfProperty"
+        android:alpha="0.87"
+        android:padding="@dimen/size_half_byte"
+        android:textSize="@dimen/size_text_secondary" />
+
+    <TextView
+        android:id="@+id/grossRentalMultipilier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/typeOfProperty"
+        android:alpha="0.87"
+        android:padding="@dimen/size_half_byte"
+        android:textSize="@dimen/size_text_secondary" />
+
+    <TextView
+        android:id="@+id/vacancyRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/typeOfProperty"
+        android:alpha="0.87"
+        android:padding="@dimen/size_half_byte"
+        android:textSize="@dimen/size_text_secondary" />
+
+    <TextView
+        android:id="@+id/grossRental"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/typeOfProperty"
+        android:alpha="0.87"
+        android:padding="@dimen/size_half_byte"
+        android:textSize="@dimen/size_text_secondary" />
+
+    <TextView
+        android:id="@+id/capRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/typeOfProperty"
+        android:alpha="0.87"
+        android:padding="@dimen/size_half_byte"
+        android:textSize="@dimen/size_text_secondary" />
+
+    <TextView
+        android:id="@+id/propertyRequireAnyRepairs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/typeOfProperty"
+        android:alpha="0.87"
+        android:padding="@dimen/size_half_byte"
+        android:textSize="@dimen/size_text_secondary" />
+    <TextView
+        android:id="@+id/assignmentFee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/typeOfProperty"
+        android:alpha="0.87"
+        android:padding="@dimen/size_half_byte"
+        android:textSize="@dimen/size_text_secondary" />
+
+    <RatingBar
+        android:id="@+id/dealAudienceScore"
+        style="@android:style/Widget.Holo.RatingBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:isIndicator="true"
+        android:max="5"
+        android:numStars="0" />
+</RelativeLayout>

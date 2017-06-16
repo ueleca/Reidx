@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayoutItemNews"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/feed_bg"
+    android:clickable="true"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <ImageView
+            android:id="@+id/tenantProfileImage"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/contact_icon" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:gravity="left"
+            android:orientation="vertical"
+            android:layout_weight="0.46">
+
+            <TextView
+                android:id="@+id/tenantFirstLastName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
+                android:textColor="@color/md_text"
+                tools:text="Brian Donaldson" />
+
+            <TextView
+                android:id="@+id/tenantEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
+                android:textColor="@color/md_text"
+                tools:text="donaldson_brian@hotmail.com" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <EditText
+                    android:id="@+id/tenantHomePhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
+                    android:textColor="@color/md_text"
+                    android:inputType="phone"
+                    tools:text="416-093-4343" />
+
+                <EditText
+                    android:id="@+id/tenantCellPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
+                    android:textColor="@color/md_text"
+                    android:inputType="phone"
+                    tools:text="647-843-9578"
+                    android:layout_marginLeft="10dp" />
+            </LinearLayout>
+			
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/tenantIncome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
+                    android:textColor="@color/md_text"
+                    android:linksClickable="false"
+                    android:longClickable="false"
+				    tools:text="$120,000"/>
+
+                <TextView
+                    android:id="@+id/tenantDeposit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
+                    android:textColor="@color/md_text"
+                    android:linksClickable="false"
+                    android:longClickable="false"
+                    android:layout_marginLeft="45dp" 
+					tools:text="$10,000"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/overflowMenu"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_action_overflow"
+            android:layout_marginLeft="75dp" />
+
+    </LinearLayout>
+</LinearLayout>
+

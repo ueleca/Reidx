@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_dashboard"
+        android:icon="@drawable/ic_dashboard"
+        android:title="Dashboard" />
+
+    <item
+        android:id="@+id/nav_notif"
+        android:icon="@drawable/ic_action_content_inbox"
+        android:title="Notifcations" />
+
+    <item
+        android:id="@+id/nav_dealanalyzer"
+        android:icon="@drawable/ic_action_calculator"
+        android:title="Deal Analyzer" />
+
+    <item
+        android:id="@+id/nav_savedsearches"
+        android:icon="@drawable/ic_content_save"
+        android:title="Saved Searches" />
+
+    <item
+        android:id="@+id/nav_searches"
+        android:icon="@drawable/ic_content_save"
+        android:title="Saved Searches" />
+
+</menu>

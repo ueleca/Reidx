@@ -1,13 +1,14 @@
-package com.uele.reidx.android.ui.transform;
+package com.uele.reidx.android.ui.custom;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 
 import com.squareup.picasso.Transformation;
 
-public class CircleTransform implements Transformation
+public class CircleTransformWhite implements Transformation
 {
     @Override
     public Bitmap transform(Bitmap source)
@@ -23,6 +24,7 @@ public class CircleTransform implements Transformation
         }
 
         Bitmap bitmap = Bitmap.createBitmap(size, size, source.getConfig());
+
         Canvas canvas = new Canvas(bitmap);
         Paint paint = new Paint();
         BitmapShader shader = new BitmapShader(squaredBitmap,
@@ -30,8 +32,15 @@ public class CircleTransform implements Transformation
         paint.setShader(shader);
         paint.setAntiAlias(true);
 
+        Paint paintBorder = new Paint();
+        paintBorder.setColor(Color.WHITE);
+        paintBorder.setStyle(Paint.Style.STROKE);
+        paintBorder.setAntiAlias(true);
+        paintBorder.setStrokeWidth(7);
+
         float r = size / 2f;
         canvas.drawCircle(r, r, r, paint);
+        canvas.drawCircle(r, r, r - 4, paintBorder);
 
         squaredBitmap.recycle();
         return bitmap;

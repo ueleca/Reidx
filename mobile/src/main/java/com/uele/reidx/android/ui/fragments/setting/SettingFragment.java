@@ -16,37 +16,33 @@
 package com.uele.reidx.android.ui.fragments.setting;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.view.View;
 
-import com.uele.reidx.android.ui.activities.settings.SettingsActivity;
-import com.uele.reidx.android.ui.activities.settings.SettingsPresenter;
-import com.uele.reidx.android.ui.activities.settings.SettingsReidxView;
-import com.uele.reidx.android.ui.base.BaseFragment;
+import com.uele.reidx.android.R;
+import com.uele.reidx.android.ui.base.BasePreferenceFragment;
 
 import javax.inject.Inject;
 
 public class SettingFragment
-        extends BaseFragment implements SettingsReidxView {
+        extends BasePreferenceFragment implements SettingReidxView {
 
-    public static final String PREFERENCE_FILE_NAME = "reidx.settings";
-    private SettingsActivity mSettingsActivity;
+    public static final String TAG = "SettingsFragment";
+    private static final String PREFERENCE_FILE_NAME = "reidx.settings";
 
     @Inject
-    SettingsPresenter mSettingsPresenter;
-
-    public SettingFragment() {
-        super();
-    }
+    SettingReidxPresenter<SettingReidxView> mSettingPresenter;
 
     public static SettingFragment newInstance() {
-        return new SettingFragment();
+        Bundle args = new Bundle();
+        SettingFragment fragment = new SettingFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
     }
 
     @Override
@@ -54,6 +50,19 @@ public class SettingFragment
 
     }
 
+    @Override
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+        getActivityComponent().inject(this);
+        addPreferencesFromResource(R.xml.settings);
+        getPreferenceManager().setSharedPreferencesName(PREFERENCE_FILE_NAME);
+        mSettingPresenter.onAttach(this);
+    }
+
+    @Override
+    public void onDestroyView() {
+        mSettingPresenter.onDetach();
+        super.onDestroyView();
+    }
 
     @Override
     public void showMessage(String message) {
@@ -72,11 +81,6 @@ public class SettingFragment
 
     @Override
     public void showErrorMessage(Throwable throwable) {
-
-    }
-
-    @Override
-    public void initPreferenceListView(View view) {
 
     }
 }

@@ -49,4 +49,10 @@ public interface ReidxView {
     void showErrorMessage(Throwable throwable);
 
     boolean isNetworkConnected();
+
+    interface SortListener {
+        public void onSortByName();
+        public void onSortByDate();
+        public void onSortByRating();
+    }
 }

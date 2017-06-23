@@ -65,7 +65,7 @@ public class ResetActivity
     }
 
     @Override
-    public void startLoginActivity() {
+    public void openLoginActivity() {
         startActivity(new Intent(ResetActivity.this, LoginActivity.class));
         finish();
     }

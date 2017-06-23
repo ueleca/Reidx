@@ -21,6 +21,7 @@ package com.uele.reidx.android.di.component;
 
 import com.uele.reidx.android.di.module.ActivityModule;
 import com.uele.reidx.android.di.scope.PerActivity;
+import com.uele.reidx.android.ui.activities.about.AboutActivity;
 import com.uele.reidx.android.ui.activities.analyzer.AnalyzerActivity;
 import com.uele.reidx.android.ui.activities.leads.LeadsActivity;
 import com.uele.reidx.android.ui.activities.login.LoginActivity;
@@ -36,16 +37,17 @@ import com.uele.reidx.android.ui.activities.search.SearchActivity;
 import com.uele.reidx.android.ui.activities.settings.SettingsActivity;
 import com.uele.reidx.android.ui.activities.splash.SplashActivity;
 import com.uele.reidx.android.ui.activities.tenant.TenantActivity;
-import com.uele.reidx.android.ui.fragments.about.AboutFragment;
 import com.uele.reidx.android.ui.fragments.dash.DashBoardFragment;
 import com.uele.reidx.android.ui.fragments.feed.FeedFragment;
 import com.uele.reidx.android.ui.fragments.liveFeed.LiveFeedFragment;
+import com.uele.reidx.android.ui.fragments.setting.SettingFragment;
 
 import dagger.Component;
 
 @PerActivity
 @Component(dependencies = ApplicationComponent.class, modules = ActivityModule.class)
 public interface ActivityComponent {
+    void inject(AboutActivity activity);
     void inject(AnalyzerActivity activity);
     void inject(LoginActivity activity);
     void inject(LeadsActivity activity);
@@ -62,12 +64,12 @@ public interface ActivityComponent {
     void inject(SettingsActivity activity);
     void inject(TenantActivity activity);
 
-    void inject(AboutFragment fragment);
     void inject(DashBoardFragment fragment);
    // void inject(DealFeedFragment fragment);
    // void inject(FavoriteFeedFragment fragment);
    void inject(FeedFragment fragment);
     void inject(LiveFeedFragment fragment);
    // void inject(MyDealFeedFragment fragment);
+    void inject(SettingFragment fragment);
 
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Uele, Inc.
+ * Copyright (C) 2017 Brian Donaldson
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,10 +14,11 @@
  * limitations under the License.
  */
 
-package com.uele.reidx.android.ui.activities.main;
+package com.uele.reidx.android.ui.activities.info;
 
-import com.uele.reidx.android.ui.base.ReidxView;
+import com.uele.reidx.android.di.scope.PerActivity;
+import com.uele.reidx.android.ui.base.ReidxPresenter;
 
-public interface MainReidxView extends ReidxView {
-
+@PerActivity
+public interface InfoReidxPresenter<V extends InfoReidxView> extends ReidxPresenter<V> {
 }

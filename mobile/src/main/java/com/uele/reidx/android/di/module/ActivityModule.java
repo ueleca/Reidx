@@ -14,10 +14,6 @@
  */
 package com.uele.reidx.android.di.module;
 
-/*
- * Created by Brian Donaldson on 3/13/17.
- */
-
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -25,6 +21,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import com.uele.reidx.android.data.network.model.FeedResponse;
 import com.uele.reidx.android.di.qualifier.ActivityContext;
 import com.uele.reidx.android.di.scope.PerActivity;
+import com.uele.reidx.android.ui.activities.about.AboutPresenter;
+import com.uele.reidx.android.ui.activities.about.AboutReidxPresenter;
+import com.uele.reidx.android.ui.activities.about.AboutReidxView;
 import com.uele.reidx.android.ui.activities.analyzer.AnalyzerPresenter;
 import com.uele.reidx.android.ui.activities.analyzer.AnalyzerReidxPresenter;
 import com.uele.reidx.android.ui.activities.analyzer.AnalyzerReidxView;
@@ -70,9 +69,6 @@ import com.uele.reidx.android.ui.activities.splash.SplashReidxView;
 import com.uele.reidx.android.ui.activities.tenant.TenantPresenter;
 import com.uele.reidx.android.ui.activities.tenant.TenantReidxPresenter;
 import com.uele.reidx.android.ui.activities.tenant.TenantReidxView;
-import com.uele.reidx.android.ui.fragments.about.AboutPresenter;
-import com.uele.reidx.android.ui.fragments.about.AboutReidxPresenter;
-import com.uele.reidx.android.ui.fragments.about.AboutReidxView;
 import com.uele.reidx.android.ui.fragments.dash.DashBoardPagerAdapter;
 import com.uele.reidx.android.ui.fragments.dash.DashBoardPresenter;
 import com.uele.reidx.android.ui.fragments.dash.DashBoardReidxPresenter;

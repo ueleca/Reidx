@@ -15,10 +15,6 @@
 
 package com.uele.reidx.android.ui.base;
 
-/*
- * Created by Brian Donaldson on 3/13/17.
- */
-
 import android.util.Log;
 
 import com.androidnetworking.common.ANConstants;
@@ -96,6 +92,7 @@ public class BasePresenter <V extends ReidxView> implements ReidxPresenter<V> {
     public CompositeDisposable getCompositeDisposable() {
         return mCompositeDisposable;
     }
+
     @Override
     public void handleApiError(ANError error) {
 

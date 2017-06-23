@@ -18,11 +18,13 @@ package com.uele.reidx.android.ui.activities.settings;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 
 import com.uele.reidx.android.R;
 import com.uele.reidx.android.ui.base.BaseActivity;
+import com.uele.reidx.android.ui.fragments.setting.SettingFragment;
 
 import javax.inject.Inject;
 
@@ -33,7 +35,7 @@ public class SettingsActivity
         extends BaseActivity implements SettingsReidxView {
 
     @BindView(R.id.toolbar)
-    Toolbar toolbar;
+    Toolbar mToolBar;
 
     @Inject
     SettingsReidxPresenter<SettingsReidxView> mSettingsPresenter;
@@ -46,16 +48,11 @@ public class SettingsActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setUp();
         setContentView(R.layout.activity_settings);
         getActivityComponent().inject(this);
         setUnBinder(ButterKnife.bind(this));
         mSettingsPresenter.onAttach(SettingsActivity.this);
-    }
-
-    @Override
-    protected void onDestroy() {
-        mSettingsPresenter.onDetach();
-        super.onDestroy();
     }
 
     @Override
@@ -64,7 +61,30 @@ public class SettingsActivity
     }
 
     @Override
-    public void initPreferenceListView(View view) {
+    public void onFragmentDetached(String tag) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        Fragment fragment = fragmentManager.findFragmentByTag(tag);
+        if (fragment != null) {
+            fragmentManager
+                    .beginTransaction()
+                    .disallowAddToBackStack()
+                    .setCustomAnimations(R.anim.slide_left, R.anim.slide_right)
+                    .remove(fragment)
+                    .commitNow();
+        }
+    }
 
+    @Override
+    public void showSettingFragment() {
+        SettingFragment settingFragment = SettingFragment.newInstance();
+        getFragmentManager().beginTransaction().replace(R.id.fragment_content, settingFragment).commit();
+
+       /* getSupportFragmentManager()
+                .beginTransaction()
+                .disallowAddToBackStack()
+                .setCustomAnimations(R.anim.slide_left, R.anim.slide_right)
+                .replace(R.id.fragment_content, settingFragment, SettingFragment.TAG)
+                .commit();*/
     }
 }
+

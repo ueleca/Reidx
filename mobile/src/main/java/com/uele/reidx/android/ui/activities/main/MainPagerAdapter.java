@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-package com.uele.reidx.android.ui.adapter;
+package com.uele.reidx.android.ui.activities.main;
 
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
@@ -24,8 +24,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.uele.reidx.android.R;
 import com.uele.reidx.android.ui.fragments.dash.favoriteFeed.FavoriteFeedFragment;
-import com.uele.reidx.android.ui.fragments.liveFeed.LiveFeedFragment;
 import com.uele.reidx.android.ui.fragments.dash.myDealFeed.MyDealFeedFragment;
+import com.uele.reidx.android.ui.fragments.liveFeed.LiveFeedFragment;
 
 
 public class MainPagerAdapter

@@ -16,13 +16,6 @@
 
 package com.uele.reidx.android;
 
-import com.uele.reidx.android.di.module.ApplicationModule;
+public class Modules {
 
-import javax.inject.Singleton;
-
-import dagger.Component;
-
-@Singleton
-@Component(modules = ApplicationModule.class)
-public interface ReidxComponent {
 }

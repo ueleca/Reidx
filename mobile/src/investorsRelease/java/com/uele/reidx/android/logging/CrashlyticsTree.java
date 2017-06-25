@@ -14,26 +14,34 @@
  * limitations under the License.
  */
 
-package com.uele.reidx.android;
+package com.uele.reidx.android.logging;
+
+import android.util.Log;
 
 import com.crashlytics.android.Crashlytics;
-import com.uele.reidx.android.logging.CrashlyticsTree;
 
-import io.fabric.sdk.android.Fabric;
 import timber.log.Timber;
 
-public class ReidxAppImpl
-        extends ReidxApp {
+/**
+ * A logging implementation which reports 'info', 'warning', and 'error' logs to Crashlytics.
+ */
+
+public class CrashlyticsTree
+        extends Timber.Tree {
 
     @Override
-    protected void onAfterInjection() {
+    protected void log(int priority, String tag, String message, Throwable t) {
+        if (priority == Log.VERBOSE || priority == Log.DEBUG) {
+            return;
+        }
 
-    }
+        Crashlytics.log(priority, tag, message);
 
-    @Override
-    protected void init() {
-        //Start Crashlytics
-        Fabric.with(this, new Crashlytics());
-        Timber.plant(new CrashlyticsTree());
+        if (t != null) {
+            if (priority == Log.ERROR) {
+                Crashlytics.logException(t);
+            }
+        }
+
     }
 }

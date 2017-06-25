@@ -27,6 +27,7 @@ import timber.log.Timber;
  * This message bus allows you to post a message from any thread and it will get handled and then
  * posted to the main thread for you.
  */
+
 public class PostFromAnyThreadBus extends Bus {
     public PostFromAnyThreadBus() {
         super(ThreadEnforcer.MAIN);

@@ -24,7 +24,7 @@ buildscript {
         classpath 'com.google.gms:google-services:3.1.0'
         classpath 'io.fabric.tools:gradle:1.+'
         classpath 'me.tatarka:gradle-retrolambda:3.4.0'
-        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.1'
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'
     }
 }
 
@@ -46,7 +46,7 @@ ext {
     debugDBVersion = '1.0.0'
     dexMakerVersion = '1.2'
     glideVersion = '3.7.0'
-    greenDaoVersion = '3.2.0'
+    greenDaoVersion = '3.2.2'
     ormLiteVersion = '5.0'
     rxandroidVersion = '2.0.1'
     rxjava2Version = '2.0.6'

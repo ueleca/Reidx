@@ -23,3 +23,8 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# If you do not use SQLCipher:
+-dontwarn org.greenrobot.greendao.database.**
+# If you do not use RxJava:
+-dontwarn rx.**

@@ -15,10 +15,6 @@
 
 package com.uele.reidx.android.di.component;
 
-/*
- * Created by Brian Donaldson on 3/13/17.
- */
-
 import android.app.Application;
 import android.content.Context;
 

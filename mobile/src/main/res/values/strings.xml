@@ -134,4 +134,9 @@
     <string name="error_empty_input">Inputs may not be Empty</string>
     <string name="error_password_too_long">Password too long</string>
 
+    <!--Login Validation-->
+    <string name="empty_email">Please provide a non empty email.</string>
+    <string name="invalid_email">Please provide a valid email.</string>
+    <string name="empty_password">Please provide a non empty password.</string>
+
 </resources>

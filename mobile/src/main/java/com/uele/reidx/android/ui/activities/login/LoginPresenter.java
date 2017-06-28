@@ -17,13 +17,21 @@
 
 package com.uele.reidx.android.ui.activities.login;
 
+import com.androidnetworking.error.ANError;
+import com.uele.reidx.android.R;
 import com.uele.reidx.android.data.DataManager;
+import com.uele.reidx.android.data.network.model.LoginRequest;
+import com.uele.reidx.android.data.network.model.LoginResponse;
 import com.uele.reidx.android.ui.base.BasePresenter;
+import com.uele.reidx.android.utils.CommonUtils;
 import com.uele.reidx.android.utils.rx.SchedulerProvider;
 
 import javax.inject.Inject;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 public class LoginPresenter<V extends LoginReidxView> extends BasePresenter<V>
         implements LoginReidxPresenter<V> {
@@ -39,20 +47,18 @@ public class LoginPresenter<V extends LoginReidxView> extends BasePresenter<V>
 
     @Override
     public void onServerLoginClick(String email, String password) {
-        getReidxView().openMainActivity();
 
- /*
         //validate email and password
         if (email == null || email.isEmpty()) {
-            getMvpView().onError(R.string.empty_email);
+            getReidxView().onError(R.string.empty_email);
             return;
         }
         if (!CommonUtils.isEmailValid(email)) {
-            getMvpView().onError(R.string.invalid_email);
+            getReidxView().onError(R.string.invalid_email);
             return;
         }
         if (password == null || password.isEmpty()) {
-            getMvpView().onError(R.string.empty_password);
+            getReidxView().onError(R.string.empty_password);
             return;
         }
         getReidxView().showLoading();
@@ -76,8 +82,8 @@ public class LoginPresenter<V extends LoginReidxView> extends BasePresenter<V>
                             return;
                         }
 
-                        getMvpView().hideLoading();
-                        getMvpView().openMainActivity();
+                        getReidxView().hideLoading();
+                        getReidxView().openMainActivity();
 
                     }
                 }, new Consumer<Throwable>() {
@@ -88,7 +94,7 @@ public class LoginPresenter<V extends LoginReidxView> extends BasePresenter<V>
                             return;
                         }
 
-                        getMvpView().hideLoading();
+                        getReidxView().hideLoading();
 
                         // handle the login error here
                         if (throwable instanceof ANError) {
@@ -97,7 +103,5 @@ public class LoginPresenter<V extends LoginReidxView> extends BasePresenter<V>
                         }
                     }
                 }));
-*/
-
     }
 }

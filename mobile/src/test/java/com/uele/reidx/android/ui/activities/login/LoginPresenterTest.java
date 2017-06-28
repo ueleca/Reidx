@@ -83,6 +83,8 @@ public class LoginPresenterTest {
 
         mLoginPresenter.onServerLoginClick(VALID_EMAIL, VALID_PASSWORD);
 
+        mTestScheduler.triggerActions();
+
         verify(mMockLoginReidxView).showLoading();
         verify(mMockLoginReidxView).hideLoading();
         verify(mMockLoginReidxView).openMainActivity();

@@ -15,7 +15,6 @@
 
 package com.uele.reidx.android.ui.activities.login;
 
-import com.uele.reidx.android.R;
 import com.uele.reidx.android.data.DataManager;
 import com.uele.reidx.android.data.network.model.LoginRequest;
 import com.uele.reidx.android.data.network.model.LoginResponse;
@@ -30,13 +29,11 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import io.reactivex.Observable;
-import io.reactivex.android.plugins.RxAndroidPlugins;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.TestScheduler;
 
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class LoginPresenterTest {
@@ -90,7 +87,7 @@ public class LoginPresenterTest {
         verify(mMockLoginReidxView).hideLoading();
         verify(mMockLoginReidxView).openMainActivity();
     }
-
+/*
     @Test
     public void whenLogInAuthSucceeds() throws Exception {
         when(mMockLoginReidxView.getEmail()).thenReturn(VALID_EMAIL);
@@ -130,10 +127,9 @@ public class LoginPresenterTest {
         mLoginPresenter.onServerLoginClick(VALID_EMAIL, VALID_PASSWORD);
         verify(mMockLoginReidxView).onError(R.string.error_password_too_long);
     }
-
+*/
     @After
     public void tearDown() throws Exception {
         mLoginPresenter.onDetach();
-        RxAndroidPlugins.reset();
     }
 }

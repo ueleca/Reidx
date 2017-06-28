@@ -28,10 +28,8 @@ import com.uele.reidx.android.utils.rx.SchedulerProvider;
 
 import javax.inject.Inject;
 
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
 
 public class LoginPresenter<V extends LoginReidxView> extends BasePresenter<V>
         implements LoginReidxPresenter<V> {
@@ -65,8 +63,8 @@ public class LoginPresenter<V extends LoginReidxView> extends BasePresenter<V>
 
         getCompositeDisposable().add(getDataManager()
                 .doServerLoginApiCall(new LoginRequest.ServerLoginRequest(email, password))
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(getSchedulerProvider().io())
+                .observeOn(getSchedulerProvider().ui())
                 .subscribe(new Consumer<LoginResponse>() {
                     @Override
                     public void accept(LoginResponse response) throws Exception {

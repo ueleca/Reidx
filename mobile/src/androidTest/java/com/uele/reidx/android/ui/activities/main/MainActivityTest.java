@@ -18,13 +18,14 @@ package com.uele.reidx.android.ui.activities.main;
 
 import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.ViewInteraction;
+import android.support.test.espresso.intent.rule.IntentsTestRule;
 import android.support.test.espresso.matcher.BoundedMatcher;
 import android.support.test.filters.LargeTest;
-import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.support.v7.widget.Toolbar;
 
 import com.uele.reidx.android.R;
+import com.uele.reidx.android.TestComponentRule;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
@@ -32,6 +33,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.RuleChain;
+import org.junit.rules.TestRule;
 import org.junit.runner.RunWith;
 
 import static android.support.test.espresso.Espresso.onView;
@@ -43,9 +46,14 @@ import static org.hamcrest.core.Is.is;
 @LargeTest
 public class MainActivityTest {
 
+    public final TestComponentRule component =
+            new TestComponentRule(InstrumentationRegistry.getTargetContext());
+
+    public final IntentsTestRule<MainActivity> main =
+            new IntentsTestRule<>(MainActivity.class, false, false);
+
     @Rule
-    public ActivityTestRule<MainActivity> mActivityRule
-            = new ActivityTestRule<>(MainActivity.class);
+    public TestRule chain = RuleChain.outerRule(component).around(main);
 
     @Before
     public void setUp() throws Exception {
@@ -55,8 +63,7 @@ public class MainActivityTest {
     @Test
     public void toolbarTitle() {
         CharSequence title =
-                InstrumentationRegistry.getTargetContext().getString(R.string.app_name);
-        matchToolbarTitle(title);
+                InstrumentationRegistry.getTargetContext().getString(R.string.app_name); matchToolbarTitle(title);
     }
 
     @After

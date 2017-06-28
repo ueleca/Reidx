@@ -76,6 +76,7 @@ public class LoginEspressoTest {
 
     @Test
     public void testViewElements() throws PackageManager.NameNotFoundException {
+        main.launchActivity(LoginActivity.getStartIntent(component.getContext()));
         onView(withId(R.id.loginEmailEdt)).check(matches(withHint(R.string.hint_email)));
         onView(withId(R.id.loginPasswordEdt)).check(matches(withHint(R.string.hint_password)));
         onView(withId(R.id.loginBtn)).check(matches(withText(R.string.button_login)));
@@ -85,6 +86,7 @@ public class LoginEspressoTest {
 
     @Test
     public void testLoginButton() {
+        main.launchActivity(LoginActivity.getStartIntent(component.getContext()));
         onView(withId(R.id.loginEmailEdt)).perform(typeText("brian@ca.ibm.com"));
         onView(withId(R.id.loginPasswordEdt)).perform(typeText("8)6%&21"));
         onView(withId(R.id.loginBtn)).perform(click());

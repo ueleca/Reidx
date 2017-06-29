@@ -24,7 +24,8 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
-# If you do not use SQLCipher:
+-dontwarn com.squareup.okhttp.**
+-dontwarn javax.annotation.**
+-dontwarn okio.**
 -dontwarn org.greenrobot.greendao.database.**
-# If you do not use RxJava:
 -dontwarn rx.**

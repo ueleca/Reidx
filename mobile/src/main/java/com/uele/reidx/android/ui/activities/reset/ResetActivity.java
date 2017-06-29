@@ -33,8 +33,10 @@ import butterknife.OnClick;
 public class ResetActivity
         extends BaseActivity implements ResetReidxView {
 
-    @BindView(R.id.resetPasswordBtn) Button btnResetPassword;
-    @BindView(R.id.resetBackBtn) Button btnBack;
+    @BindView(R.id.resetPasswordBtn)
+    Button btnResetPassword;
+    @BindView(R.id.resetBackBtn)
+    Button btnBack;
 
     @Inject
     ResetReidxPresenter<ResetReidxView> mResetPresenter;

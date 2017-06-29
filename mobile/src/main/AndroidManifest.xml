@@ -42,6 +42,10 @@
             android:name=".ui.activities.main.MainActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activities.reset.ResetActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".ui.activities.settings.SettingsActivity"

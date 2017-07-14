@@ -80,8 +80,6 @@ public class ApplicationTestModule {
         return AppConstants.PREF_NAME;
     }
 
-    // TODO : Mock all below for UI testing
-
     @Provides
     @Singleton
     DataManager provideDataManager(AppDataManager appDataManager) {

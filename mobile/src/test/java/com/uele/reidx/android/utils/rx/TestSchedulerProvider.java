@@ -19,7 +19,8 @@ package com.uele.reidx.android.utils.rx;
 import io.reactivex.Scheduler;
 import io.reactivex.schedulers.TestScheduler;
 
-public class TestSchedulerProvider implements SchedulerProvider {
+public class TestSchedulerProvider
+        implements SchedulerProvider {
 
     private final TestScheduler mTestScheduler;
 

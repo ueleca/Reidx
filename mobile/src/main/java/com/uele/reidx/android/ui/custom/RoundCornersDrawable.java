@@ -14,6 +14,7 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
+
 /**
  * Image with rounded corners
  *
@@ -22,13 +23,17 @@ import android.graphics.drawable.Drawable;
  *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class RoundCornersDrawable extends Drawable {
+
+public class RoundCornersDrawable
+        extends Drawable {
+
     private static final boolean USE_VIGNETTE = true;
     private final float mCornerRadius;
     private final RectF mRect = new RectF();
     private final BitmapShader mBitmapShader;
     private final Paint mPaint;
     private final int mMargin;
+
     public RoundCornersDrawable(Bitmap bitmap, float cornerRadius, int margin) {
         mCornerRadius = cornerRadius;
         mBitmapShader = new BitmapShader(bitmap,
@@ -38,6 +43,7 @@ public class RoundCornersDrawable extends Drawable {
         mPaint.setShader(mBitmapShader);
         mMargin = margin;
     }
+
     @Override
     protected void onBoundsChange(Rect bounds) {
         super.onBoundsChange(bounds);
@@ -54,18 +60,22 @@ public class RoundCornersDrawable extends Drawable {
                     new ComposeShader(mBitmapShader, vignette, PorterDuff.Mode.SRC_OVER));
         }
     }
+
     @Override
     public void draw(Canvas canvas) {
         canvas.drawRoundRect(mRect, mCornerRadius, mCornerRadius, mPaint);
     }
+
     @Override
     public int getOpacity() {
         return PixelFormat.TRANSLUCENT;
     }
+
     @Override
     public void setAlpha(int alpha) {
         mPaint.setAlpha(alpha);
     }
+
     @Override
     public void setColorFilter(ColorFilter cf) {
         mPaint.setColorFilter(cf);

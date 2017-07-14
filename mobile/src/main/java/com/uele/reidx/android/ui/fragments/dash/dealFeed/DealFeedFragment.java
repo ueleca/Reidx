@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-
 package com.uele.reidx.android.ui.fragments.dash.dealFeed;
 
 import android.os.Bundle;
@@ -58,7 +57,6 @@ public class DealFeedFragment
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
     }
 
     @Override
@@ -87,8 +85,9 @@ public class DealFeedFragment
 
     }
 
+
     @Override
-    public void onBlogEmptyViewRetryClick() {
+    public void onDealsEmptyViewRetryClick() {
 
     }
 }

@@ -104,7 +104,6 @@ public class DashBoardFragment
 
         }
     });
-
 }
 
     @Override
@@ -126,5 +125,4 @@ public class DashBoardFragment
     public void showErrorMessage(Throwable throwable) {
 
     }
-
 }

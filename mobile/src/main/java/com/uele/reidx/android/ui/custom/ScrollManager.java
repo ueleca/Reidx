@@ -19,30 +19,30 @@ import com.uele.reidx.android.R;
 import java.util.HashMap;
 
 public class ScrollManager
-        extends RecyclerView.OnScrollListener
-{
+        extends RecyclerView.OnScrollListener {
+
     private static final int MIN_SCROLL_TO_HIDE = 50;
+    int statusBarHeight;
+    View statusBar;
+    Activity activity;
+    int colorStatusBar19, colorStatusBar21;
+    TypedValue typedValueStatusBarColor = new TypedValue();
     private boolean hidden;
     private int accummulatedDy;
     private int totalDy;
     private int initialOffset;
-    int statusBarHeight;
-    View statusBar;
-    Activity activity;
     private HashMap<View, Direction> viewsToHide = new HashMap<>();
-    int colorStatusBar19, colorStatusBar21;
-    TypedValue typedValueStatusBarColor = new TypedValue();
-
-    public static enum Direction {UP, DOWN}
 
     public ScrollManager(Activity activity) {
         this.activity = activity;
         statusBar = activity.findViewById(R.id.statusBar);
         statusBarHeight = statusBar.getHeight();
 
-        activity.getTheme().resolveAttribute(R.attr.colorPrimary, typedValueStatusBarColor, true);
+        activity.getTheme().resolveAttribute(
+                R.attr.colorPrimary, typedValueStatusBarColor, true);
         colorStatusBar19 = typedValueStatusBarColor.data;
-        activity.getTheme().resolveAttribute(R.attr.colorPrimaryDark, typedValueStatusBarColor, true);
+        activity.getTheme().resolveAttribute(
+                R.attr.colorPrimaryDark, typedValueStatusBarColor, true);
         colorStatusBar21 = typedValueStatusBarColor.data;
     }
 
@@ -97,16 +97,18 @@ public class ScrollManager
         }
     }
 
-
     private void hideView(final View view, Direction direction) {
         int height = calculateTranslation(view);
         int translateY = direction == Direction.UP ? -height - statusBarHeight : height;
         runTranslateAnimation(view, translateY, new AccelerateInterpolator(3));
 
         if (Build.VERSION.SDK_INT >= 21) {
-            ValueAnimator colorAnimation = ValueAnimator.ofArgb(colorStatusBar21, activity.getResources().getColor(R.color.inset));
-            colorAnimation.setDuration(activity.getResources().getInteger(android.R.integer.config_longAnimTime));
-            colorAnimation.setStartDelay(activity.getResources().getInteger(android.R.integer.config_mediumAnimTime));
+            ValueAnimator colorAnimation = ValueAnimator.ofArgb(colorStatusBar21,
+                    activity.getResources().getColor(R.color.inset));
+            colorAnimation.setDuration(
+                    activity.getResources().getInteger(android.R.integer.config_longAnimTime));
+            colorAnimation.setStartDelay(
+                    activity.getResources().getInteger(android.R.integer.config_mediumAnimTime));
             colorAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                 @Override
                 public void onAnimationUpdate(ValueAnimator animator) {
@@ -117,10 +119,14 @@ public class ScrollManager
             colorAnimation.start();
         }
 
-        if (Build.VERSION.SDK_INT >= 19 && Build.VERSION.SDK_INT < 21 ) {
-            ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), colorStatusBar19, activity.getResources().getColor(android.R.color.transparent));
-            colorAnimation.setDuration(activity.getResources().getInteger(android.R.integer.config_longAnimTime));
-            colorAnimation.setStartDelay(activity.getResources().getInteger(android.R.integer.config_mediumAnimTime));
+        if (Build.VERSION.SDK_INT >= 19 && Build.VERSION.SDK_INT < 21) {
+            ValueAnimator colorAnimation = ValueAnimator.ofObject(
+                    new ArgbEvaluator(), colorStatusBar19,
+                    activity.getResources().getColor(android.R.color.transparent));
+            colorAnimation.setDuration(
+                    activity.getResources().getInteger(android.R.integer.config_longAnimTime));
+            colorAnimation.setStartDelay(
+                    activity.getResources().getInteger(android.R.integer.config_mediumAnimTime));
             colorAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                 @Override
                 public void onAnimationUpdate(ValueAnimator animator) {
@@ -138,6 +144,7 @@ public class ScrollManager
      * @param view BaseView to translate
      * @return translation in pixels
      */
+
     private int calculateTranslation(View view) {
         int height = view.getHeight();
 
@@ -150,8 +157,10 @@ public class ScrollManager
     private void showView(View view) {
         runTranslateAnimation(view, 0, new DecelerateInterpolator(3));
         if (Build.VERSION.SDK_INT >= 21) {
-            ValueAnimator colorAnimation = ValueAnimator.ofArgb(activity.getResources().getColor(R.color.inset), colorStatusBar21);
-            colorAnimation.setDuration(activity.getResources().getInteger(android.R.integer.config_mediumAnimTime));
+            ValueAnimator colorAnimation = ValueAnimator.ofArgb(
+                    activity.getResources().getColor(R.color.inset), colorStatusBar21);
+            colorAnimation.setDuration(
+                    activity.getResources().getInteger(android.R.integer.config_mediumAnimTime));
             colorAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                 @Override
                 public void onAnimationUpdate(ValueAnimator animator) {
@@ -162,9 +171,12 @@ public class ScrollManager
             colorAnimation.start();
         }
 
-        if (Build.VERSION.SDK_INT >= 19 && Build.VERSION.SDK_INT < 21 ) {
-            ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), activity.getResources().getColor(android.R.color.transparent), colorStatusBar19);
-            colorAnimation.setDuration(activity.getResources().getInteger(android.R.integer.config_mediumAnimTime));
+        if (Build.VERSION.SDK_INT >= 19 && Build.VERSION.SDK_INT < 21) {
+            ValueAnimator colorAnimation = ValueAnimator.ofObject(
+                    new ArgbEvaluator(),
+                    activity.getResources().getColor(android.R.color.transparent), colorStatusBar19);
+            colorAnimation.setDuration(
+                    activity.getResources().getInteger(android.R.integer.config_mediumAnimTime));
             colorAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                 @Override
                 public void onAnimationUpdate(ValueAnimator animator) {
@@ -176,11 +188,12 @@ public class ScrollManager
         }
     }
 
-    private void runTranslateAnimation(View view, int translateY, Interpolator interpolator)
-    {
+    private void runTranslateAnimation(View view, int translateY, Interpolator interpolator) {
         Animator slideInAnimation = ObjectAnimator.ofFloat(view, "translationY", translateY);
-        slideInAnimation.setDuration(view.getContext().getResources().getInteger(android.R.integer.config_mediumAnimTime));
-        slideInAnimation.setStartDelay(view.getContext().getResources().getInteger(android.R.integer.config_shortAnimTime));
+        slideInAnimation.setDuration(
+                view.getContext().getResources().getInteger(android.R.integer.config_mediumAnimTime));
+        slideInAnimation.setStartDelay(
+                view.getContext().getResources().getInteger(android.R.integer.config_shortAnimTime));
         slideInAnimation.setInterpolator(interpolator);
         slideInAnimation.start();
     }
@@ -191,4 +204,6 @@ public class ScrollManager
         // Convert the dps to pixels, based on density scale
         return (int) (dp * scale + 0.5f);
     }
+
+    public static enum Direction {UP, DOWN}
 }

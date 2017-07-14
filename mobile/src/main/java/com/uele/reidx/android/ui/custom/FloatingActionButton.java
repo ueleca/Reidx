@@ -9,13 +9,13 @@ import android.widget.Checkable;
 import android.widget.FrameLayout;
 
 public class FloatingActionButton
-        extends FrameLayout
-        implements Checkable {
+        extends FrameLayout implements Checkable {
 
     /**
      * Interface definition for a callback to be invoked when the checked state
      * of a compound button changes.
      */
+
     public static interface OnCheckedChangeListener {
 
         /**
@@ -24,12 +24,14 @@ public class FloatingActionButton
          * @param fabView   The FAB view whose state has changed.
          * @param isChecked The new checked state of buttonView.
          */
+
         void onCheckedChanged(FloatingActionButton fabView, boolean isChecked);
     }
 
     /**
      * An array of states.
      */
+
     private static final int[] CHECKED_STATE_SET = {
             android.R.attr.state_checked
     };
@@ -78,6 +80,7 @@ public class FloatingActionButton
      * Sets the checked/unchecked state of the FAB.
      * @param checked
      */
+
     public void setChecked(boolean checked) {
         // If trying to set the current state, ignore.
         if (checked == mChecked) {
@@ -99,6 +102,7 @@ public class FloatingActionButton
      *
      * @param listener the callback to call on checked state change
      */
+
     public void setOnCheckedChangeListener(OnCheckedChangeListener listener) {
         mOnCheckedChangeListener = listener;
     }
@@ -116,6 +120,7 @@ public class FloatingActionButton
     /**
      * Override performClick() so that we can toggle the checked state when the view is clicked
      */
+
     @Override
     public boolean performClick() {
         toggle();

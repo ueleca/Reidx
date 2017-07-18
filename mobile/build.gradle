@@ -7,7 +7,7 @@ apply plugin: 'org.greenrobot.greendao'
 android {
 
     compileSdkVersion 25
-    buildToolsVersion "25.0.3"
+    buildToolsVersion "26.0.0"
 
     buildTypes {
 
@@ -95,8 +95,11 @@ android {
         }
     }
 
-    testOptions {
-        unitTests.returnDefaultValues = true
+    // Always show the result of every unit test, even if it passes.
+    testOptions.unitTests.all {
+        testLogging {
+            events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
+        }
     }
 }
 
@@ -144,7 +147,7 @@ dependencies {
     compile 'com.squareup:otto:1.3.8'
 
     // Facebook
-    compile 'com.facebook.android:facebook-android-sdk:4.23.+'
+    compile 'com.facebook.android:facebook-android-sdk:4.23.0'
 
     // Firebase
     compile "com.google.firebase:firebase-auth:$rootProject.fireBaseVersion"
@@ -167,10 +170,6 @@ dependencies {
     // Reactive
     compile "io.reactivex.rxjava2:rxjava:$rootProject.rxjava2Version"
     compile "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroidVersion"
-
-    // REST Interactions
-    compile "com.squareup.retrofit2:retrofit:$rootProject.retroFitVersion"
-    compile "com.squareup.retrofit2:converter-gson:$rootProject.retroFitVersion"
 
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'de.hdodenhof:circleimageview:2.1.0'
@@ -195,7 +194,7 @@ dependencies {
     androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
 
     wearApp project(':wear')
-    compile 'com.google.android.gms:play-services-wearable:11.0.1'
+    compile 'com.google.android.gms:play-services-wearable:11.0.2'
     compile 'com.android.support:appcompat-v7:25.3.1'
     testCompile 'junit:junit:4.12'
 }

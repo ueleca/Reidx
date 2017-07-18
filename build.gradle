@@ -45,7 +45,7 @@ ext {
     dagger2Version = '2.8'
     debugDBVersion = '1.0.0'
     dexMakerVersion = '1.2'
-    fireBaseVersion = '11.0.1'
+    fireBaseVersion = '11.0.2'
     glideVersion = '3.7.0'
     greenDaoVersion = '3.2.2'
     ormLiteVersion = '5.0'

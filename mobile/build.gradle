@@ -74,15 +74,17 @@ android {
     }
 
     productFlavors {
+
         leads {
+
             applicationId 'com.uele.reidx.android.leads'
-            versionCode 1
-            versionName '1.0.0'
+
         }
+
         investors {
+
             applicationId 'com.uele.reidx.android.investors'
-            versionCode 1
-            versionName '1.0.0'
+
         }
     }
 

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/item"
@@ -14,7 +15,7 @@
         android:id="@+id/cover_image_view"
         android:layout_width="@dimen/deal_thumbnail_width"
         android:layout_height="@dimen/deal_thumbnail_height"
-        android:layout_centerVertical="true" />
+        android:layout_centerVertical="true"/>
 
     <TextView
         android:id="@+id/title_type_of_deal_text_view"
@@ -36,7 +37,7 @@
         android:layout_below="@id/title_type_of_deal_text_view"
         android:alpha="0.87"
         android:padding="@dimen/size_half_byte"
-        android:textSize="@dimen/size_text_secondary" />
+        android:textSize="@dimen/size_text_secondary"/>
 
     <TextView
         android:id="@+id/title_city_text_view"
@@ -46,7 +47,7 @@
         android:layout_below="@id/title_type_of_property_text_view"
         android:alpha="0.87"
         android:padding="@dimen/size_half_byte"
-        android:textSize="@dimen/size_text_secondary" />
+        android:textSize="@dimen/size_text_secondary"/>
 
     <TextView
         android:id="@+id/title_province_text_view"
@@ -56,7 +57,7 @@
         android:layout_below="@id/title_type_of_property_text_view"
         android:alpha="0.87"
         android:padding="@dimen/size_half_byte"
-        android:textSize="@dimen/size_text_secondary" />
+        android:textSize="@dimen/size_text_secondary"/>
 
     <TextView
         android:id="@+id/title_current_market_price_text_view"
@@ -66,7 +67,7 @@
         android:layout_below="@id/title_type_of_property_text_view"
         android:alpha="0.87"
         android:padding="@dimen/size_half_byte"
-        android:textSize="@dimen/size_text_secondary" />
+        android:textSize="@dimen/size_text_secondary"/>
 
     <TextView
         android:id="@+id/currentOfferSalePrice"
@@ -76,7 +77,7 @@
         android:layout_below="@id/title_type_of_property_text_view"
         android:alpha="0.87"
         android:padding="@dimen/size_half_byte"
-        android:textSize="@dimen/size_text_secondary" />
+        android:textSize="@dimen/size_text_secondary"/>
 
     <TextView
         android:id="@+id/grossIncome"
@@ -86,7 +87,7 @@
         android:layout_below="@id/title_type_of_property_text_view"
         android:alpha="0.87"
         android:padding="@dimen/size_half_byte"
-        android:textSize="@dimen/size_text_secondary" />
+        android:textSize="@dimen/size_text_secondary"/>
 
     <TextView
         android:id="@+id/grossExpense"
@@ -96,7 +97,7 @@
         android:layout_below="@id/title_type_of_property_text_view"
         android:alpha="0.87"
         android:padding="@dimen/size_half_byte"
-        android:textSize="@dimen/size_text_secondary" />
+        android:textSize="@dimen/size_text_secondary"/>
 
     <TextView
         android:id="@+id/grossRentalMultipilier"
@@ -106,7 +107,7 @@
         android:layout_below="@id/title_type_of_property_text_view"
         android:alpha="0.87"
         android:padding="@dimen/size_half_byte"
-        android:textSize="@dimen/size_text_secondary" />
+        android:textSize="@dimen/size_text_secondary"/>
 
     <TextView
         android:id="@+id/vacancyRate"
@@ -116,7 +117,7 @@
         android:layout_below="@id/title_type_of_property_text_view"
         android:alpha="0.87"
         android:padding="@dimen/size_half_byte"
-        android:textSize="@dimen/size_text_secondary" />
+        android:textSize="@dimen/size_text_secondary"/>
 
     <TextView
         android:id="@+id/grossRental"
@@ -126,7 +127,7 @@
         android:layout_below="@id/title_type_of_property_text_view"
         android:alpha="0.87"
         android:padding="@dimen/size_half_byte"
-        android:textSize="@dimen/size_text_secondary" />
+        android:textSize="@dimen/size_text_secondary"/>
 
     <TextView
         android:id="@+id/capRate"
@@ -136,7 +137,7 @@
         android:layout_below="@id/title_type_of_property_text_view"
         android:alpha="0.87"
         android:padding="@dimen/size_half_byte"
-        android:textSize="@dimen/size_text_secondary" />
+        android:textSize="@dimen/size_text_secondary"/>
 
     <TextView
         android:id="@+id/propertyRequireAnyRepairs"
@@ -146,7 +147,8 @@
         android:layout_below="@id/typeOfProperty"
         android:alpha="0.87"
         android:padding="@dimen/size_half_byte"
-        android:textSize="@dimen/size_text_secondary" />
+        android:textSize="@dimen/size_text_secondary"/>
+
     <TextView
         android:id="@+id/assignmentFee"
         android:layout_width="wrap_content"
@@ -155,7 +157,7 @@
         android:layout_below="@id/title_type_of_property_text_view"
         android:alpha="0.87"
         android:padding="@dimen/size_half_byte"
-        android:textSize="@dimen/size_text_secondary" />
+        android:textSize="@dimen/size_text_secondary"/>
 
     <RatingBar
         android:id="@+id/dealAudienceScore"
@@ -166,5 +168,6 @@
         android:layout_below="@id/dealReleaseDate"
         android:isIndicator="true"
         android:max="5"
-        android:numStars="0" />
+        android:numStars="0"/>
+
 </RelativeLayout>

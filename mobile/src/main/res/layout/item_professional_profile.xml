@@ -23,10 +23,10 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="0dp"
+            android:layout_weight="0.10"
             android:orientation="horizontal"
             android:paddingLeft="@dimen/feed_item_padding_left_right"
-            android:paddingRight="@dimen/feed_item_padding_left_right"
-            android:layout_weight="0.10">
+            android:paddingRight="@dimen/feed_item_padding_left_right">
 
             <ImageView
                 android:id="@+id/thumbnail"
@@ -41,8 +41,8 @@
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:paddingRight="@dimen/feed_item_profile_info_pad"
-                android:paddingLeft="@dimen/feed_item_profile_info_pad" >
+                android:paddingLeft="@dimen/feed_item_profile_info_pad"
+                android:paddingRight="@dimen/feed_item_profile_info_pad">
 
                 <TextView
                     android:id="@+id/businessName"
@@ -72,33 +72,33 @@
                     android:id="@+id/agentWorkPhone"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="phone"
                     android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
+                    android:textColor="@color/md_text"
                     android:textSize="@dimen/feed_item_profile_name"
                     android:textStyle="bold"
-                    android:textColor="@color/md_text"
-                    android:inputType="phone"
                     tools:text="743-434-3532"/>
 
                 <EditText
                     android:id="@+id/agentCellPhone"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="phone"
                     android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
+                    android:textColor="@color/md_text"
                     android:textSize="@dimen/feed_item_profile_name"
                     android:textStyle="bold"
-                    android:textColor="@color/md_text"
-                    android:inputType="phone"
                     tools:text="743-954-4353"/>
 
                 <EditText
                     android:id="@+id/brokeragePhone"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="phone"
                     android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
+                    android:textColor="@color/md_text"
                     android:textSize="@dimen/feed_item_profile_name"
                     android:textStyle="bold"
-                    android:textColor="@color/md_text"
-                    android:inputType="phone"
                     tools:text="743-090-6564"/>
 
                 <TextView
@@ -107,7 +107,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
                     android:textColor="@color/timestamp"
-                    android:textSize="@dimen/feed_item_timestamp" />
+                    android:textSize="@dimen/feed_item_timestamp"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

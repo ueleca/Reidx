@@ -14,7 +14,4 @@
         android:title="@string/action_settings"
         app:showAsAction="never"/>
 
-    <item android:id="@+id/menu_bugs"
-        android:title="@string/action_bugs"
-        app:showAsAction="never"/>
 </menu>

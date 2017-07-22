@@ -49,4 +49,5 @@
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/white"
         app:menu="@menu/bottom_main"/>
+
 </android.support.design.widget.CoordinatorLayout>

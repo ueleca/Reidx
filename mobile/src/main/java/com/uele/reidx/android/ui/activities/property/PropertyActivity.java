@@ -21,7 +21,6 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
 import com.uele.reidx.android.R;
-
 import com.uele.reidx.android.ui.base.BaseActivity;
 
 import javax.inject.Inject;
@@ -32,7 +31,7 @@ import butterknife.ButterKnife;
 public class PropertyActivity
         extends BaseActivity implements PropertyReidxView {
 
-    @BindView(R.id.app_bar)
+    @BindView(R.id.toolbar)
     Toolbar mToolbar;
 
     @Inject
@@ -60,6 +59,6 @@ public class PropertyActivity
 
     @Override
     protected void setUp() {
-
+        setSupportActionBar(mToolbar);
     }
 }

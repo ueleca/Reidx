@@ -9,14 +9,12 @@
 
     <include layout="@layout/toolbar_layout"/>
 
-    <include layout="@layout/toolbar_shadow_layout"/>
-
     <FrameLayout
         android:id="@+id/fragment_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/window_background">
-
+        <include layout="@layout/toolbar_shadow_layout"/>
     </FrameLayout>
 
 </android.support.design.widget.CoordinatorLayout>

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.uele.reidx.android.ui.activities.web;
+package com.uele.reidx.android.ui.fragments.web;
 
 import android.os.Bundle;
 import android.support.annotation.StringRes;
@@ -26,6 +26,7 @@ import android.webkit.WebView;
 import android.widget.ProgressBar;
 
 import com.uele.reidx.android.R;
+import com.uele.reidx.android.ui.activities.web.WebViewReidxView;
 import com.uele.reidx.android.ui.base.BaseFragment;
 
 import butterknife.BindView;

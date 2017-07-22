@@ -21,7 +21,6 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
 import com.uele.reidx.android.R;
-
 import com.uele.reidx.android.ui.base.BaseActivity;
 
 import javax.inject.Inject;
@@ -32,7 +31,7 @@ import butterknife.ButterKnife;
 public class ROIActivity
         extends BaseActivity implements ROIReidxView {
 
-    @BindView(R.id.app_bar)
+    @BindView(R.id.toolbar)
     Toolbar mToolbar;
 
     @Inject
@@ -50,6 +49,7 @@ public class ROIActivity
         getActivityComponent().inject(this);
         setUnBinder(ButterKnife.bind(this));
         mROIPresenter.onAttach(ROIActivity.this);
+        setUp();
     }
 
     @Override
@@ -60,6 +60,6 @@ public class ROIActivity
 
     @Override
     protected void setUp() {
-
+        setSupportActionBar(mToolbar);
     }
 }

@@ -53,11 +53,12 @@ public class SettingsActivity
         getActivityComponent().inject(this);
         setUnBinder(ButterKnife.bind(this));
         mSettingsPresenter.onAttach(SettingsActivity.this);
+        setUp();
     }
 
     @Override
     protected void setUp() {
-
+        setSupportActionBar(mToolBar);
     }
 
     @Override

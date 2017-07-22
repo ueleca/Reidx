@@ -21,7 +21,6 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
 import com.uele.reidx.android.R;
-
 import com.uele.reidx.android.ui.base.BaseActivity;
 
 import javax.inject.Inject;
@@ -32,7 +31,8 @@ import butterknife.ButterKnife;
 public class NotificationsActivity
         extends BaseActivity implements NotificationsReidxView {
 
-    @BindView(R.id.app_bar) Toolbar mToolbar;
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
 
     @Inject
     NotificationsReidxPresenter<NotificationsReidxView> mNotificationsPresenter;
@@ -49,6 +49,7 @@ public class NotificationsActivity
         getActivityComponent().inject(this);
         setUnBinder(ButterKnife.bind(this));
         mNotificationsPresenter.onAttach(NotificationsActivity.this);
+        setUp();
     }
 
     @Override
@@ -59,6 +60,6 @@ public class NotificationsActivity
 
     @Override
     protected void setUp() {
-
+        setSupportActionBar(mToolbar);
     }
 }

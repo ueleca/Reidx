@@ -121,8 +121,6 @@ public class MainActivity
             case R.id.menu_settings:
                 startActivity(new Intent(MainActivity.this, SettingsActivity.class));
                 break;
-            case R.id.menu_bugs:
-                break;
         }
         return super.onOptionsItemSelected(item);
     }

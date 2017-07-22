@@ -31,7 +31,8 @@ import butterknife.ButterKnife;
 public class ProfileActivity
         extends BaseActivity implements ProfileReidxView {
 
-    @BindView(R.id.app_bar) Toolbar mToolbar;
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
 
     @Inject
     ProfileReidxPresenter<ProfileReidxView> mProfilePresenter;
@@ -48,6 +49,7 @@ public class ProfileActivity
         getActivityComponent().inject(this);
         setUnBinder(ButterKnife.bind(this));
         mProfilePresenter.onAttach(ProfileActivity.this);
+        setUp();
     }
 
     @Override
@@ -58,6 +60,6 @@ public class ProfileActivity
 
     @Override
     protected void setUp() {
-
+        setSupportActionBar(mToolbar);
     }
 }

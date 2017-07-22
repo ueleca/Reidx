@@ -32,7 +32,7 @@ import butterknife.ButterKnife;
 public class AnalyzerActivity
         extends BaseActivity implements AnalyzerReidxView {
 
-    @BindView(R.id.app_bar)
+    @BindView(R.id.toolbar)
     Toolbar mToolbar;
 
     @Inject
@@ -50,6 +50,7 @@ public class AnalyzerActivity
         getActivityComponent().inject(this);
         setUnBinder(ButterKnife.bind(this));
         mAnalyzerPresenter.onAttach(AnalyzerActivity.this);
+        setUp();
     }
 
     @Override
@@ -60,6 +61,6 @@ public class AnalyzerActivity
 
     @Override
     protected void setUp() {
-
+        setSupportActionBar(mToolbar);
     }
 }

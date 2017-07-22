@@ -17,13 +17,20 @@
 package com.uele.reidx.android.ui.activities.web;
 
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 
 import com.uele.reidx.android.R;
 import com.uele.reidx.android.ui.base.BaseFragmentActivity;
+import com.uele.reidx.android.ui.fragments.web.WebViewFragment;
+
+import butterknife.BindView;
 
 
 public abstract class WebViewActivity
         extends BaseFragmentActivity implements WebViewFragment.Listener {
+
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
 
     @Override
     protected void initializeActivity(Bundle savedInstanceState) {

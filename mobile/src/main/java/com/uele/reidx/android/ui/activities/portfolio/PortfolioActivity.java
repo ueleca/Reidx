@@ -31,7 +31,7 @@ import butterknife.ButterKnife;
 public class PortfolioActivity
         extends BaseActivity implements PortfolioReidxView {
 
-    @BindView(R.id.app_bar)
+    @BindView(R.id.toolbar)
     Toolbar mToolbar;
 
     @Inject
@@ -49,6 +49,7 @@ public class PortfolioActivity
         getActivityComponent().inject(this);
         setUnBinder(ButterKnife.bind(this));
         mPortfolioPresenter.onAttach(PortfolioActivity.this);
+        setUp();
     }
 
     @Override
@@ -59,6 +60,6 @@ public class PortfolioActivity
 
     @Override
     protected void setUp() {
-
+        setSupportActionBar(mToolbar);
     }
 }

@@ -31,7 +31,8 @@ import butterknife.ButterKnife;
 public class LeadsActivity
         extends BaseActivity implements LeadsReidxView {
 
-    @BindView(R.id.app_bar) Toolbar mToolbar;
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
 
     @Inject
     LeadsReidxPresenter<LeadsReidxView> mLeadsPresenter;
@@ -58,6 +59,6 @@ public class LeadsActivity
 
     @Override
     protected void setUp() {
-
+        setSupportActionBar(mToolbar);
     }
 }

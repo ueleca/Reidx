@@ -4,6 +4,13 @@ apply plugin: 'io.fabric'
 apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'org.greenrobot.greendao'
 
+ext.signing = [
+        storeFilePath : "/Users/briandonaldson/Desktop/Test.jks",
+        storePassword : "mko09ijn",
+        keyAlias      : "reidx",
+        keyPassword   : "mko09ijn"
+]
+
 android {
 
     compileSdkVersion 25
@@ -89,11 +96,18 @@ android {
     }
 
     signingConfigs {
+
+        debug {
+
+            storeFile file("debug.keystore")
+        }
+
         release {
-            keyAlias 'reidx'
-            keyPassword 'mko09ijn'
-            storeFile file('/Users/briandonaldson/Desktop/Test.jks')
-            storePassword 'mko09ijn'
+
+            storeFile file(project.signing.storeFilePath)
+            storePassword project.signing.storePassword
+            keyAlias project.signing.keyAlias
+            keyPassword project.signing.keyPassword
         }
     }
 

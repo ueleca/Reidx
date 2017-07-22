@@ -21,7 +21,6 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
 import com.uele.reidx.android.R;
-
 import com.uele.reidx.android.ui.base.BaseActivity;
 
 import javax.inject.Inject;
@@ -32,7 +31,8 @@ import butterknife.ButterKnife;
 public class SearchActivity
         extends BaseActivity implements SearchReidxView {
 
-    @BindView(R.id.app_bar) Toolbar mToolbar;
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
 
     @Inject
     SearchReidxPresenter<SearchReidxView> mSearchPresenter;
@@ -49,6 +49,7 @@ public class SearchActivity
         getActivityComponent().inject(this);
         setUnBinder(ButterKnife.bind(this));
         mSearchPresenter.onAttach(SearchActivity.this);
+        setUp();
     }
 
     @Override
@@ -59,6 +60,6 @@ public class SearchActivity
 
     @Override
     protected void setUp() {
-
+        setSupportActionBar(mToolbar);
     }
 }

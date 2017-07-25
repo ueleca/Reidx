@@ -30,7 +30,6 @@ import com.uele.reidx.android.R;
 import com.uele.reidx.android.ui.activities.settings.SettingsActivity;
 import com.uele.reidx.android.ui.base.BaseActivity;
 import com.uele.reidx.android.ui.fragments.dash.DashBoardFragment;
-import com.uele.reidx.android.ui.fragments.liveFeed.LiveFeedFragment;
 import com.uele.reidx.android.ui.fragments.tenantsFeed.TenantsFeedFragment;
 
 import javax.inject.Inject;
@@ -103,7 +102,7 @@ public class MainActivity
 
         //Manually displaying the first fragment - one time only
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame_layout, LiveFeedFragment.newInstance());
+        transaction.replace(R.id.frame_layout, DashBoardFragment.newInstance());
         transaction.commit();
     }
 

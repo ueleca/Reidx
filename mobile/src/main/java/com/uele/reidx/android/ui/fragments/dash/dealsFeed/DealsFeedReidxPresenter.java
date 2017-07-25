@@ -14,22 +14,12 @@
  * limitations under the License.
  */
 
-package com.uele.reidx.android.ui.fragments.dash.dealFeed;
+package com.uele.reidx.android.ui.fragments.dash.dealsFeed;
 
-import com.uele.reidx.android.ui.base.ReidxView;
+import com.uele.reidx.android.di.scope.PerActivity;
+import com.uele.reidx.android.ui.base.ReidxPresenter;
 
-public interface DealFeedReidxView extends ReidxView {
+@PerActivity
+public interface DealsFeedReidxPresenter<V extends DealsFeedReidxView> extends ReidxPresenter<V> {
+    void onViewPrepared();
 }
-
-
-        /*
-        void showLoading();
-        void hideLoading();
-        void renderBrokers(final List<Deal> deals);
-        void setupList();
-        void setupAdapter();
-        void displayFoundDeals(ArrayList<Deal> deal);
-        void displayFailedSearch();
-        void displayNetworkError();
-        void displayServerError();
-        */

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.uele.reidx.android.ui.fragments.dash.dealFeed;
+package com.uele.reidx.android.ui.fragments.dash.dealsFeed;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -38,7 +38,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class DealFeedAdapter
+public class DealsFeedAdapter
         extends RecyclerView.Adapter<BaseViewHolder> {
 
     public static final int VIEW_TYPE_EMPTY = 0;
@@ -47,7 +47,7 @@ public class DealFeedAdapter
     private Callback mCallback;
     private List<DealsResponse.Deals> mDealsResponseList;
 
-    public DealFeedAdapter(List<DealsResponse.Deals> dealsResponseList) {
+    public DealsFeedAdapter(List<DealsResponse.Deals> dealsResponseList) {
         mDealsResponseList = dealsResponseList;
     }
 

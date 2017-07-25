@@ -34,7 +34,9 @@ import com.uele.reidx.android.ui.activities.settings.SettingsActivity;
 import com.uele.reidx.android.ui.activities.splash.SplashActivity;
 import com.uele.reidx.android.ui.activities.tenant.TenantActivity;
 import com.uele.reidx.android.ui.fragments.dash.DashBoardFragment;
-import com.uele.reidx.android.ui.fragments.deals.DealsFragment;
+import com.uele.reidx.android.ui.fragments.dash.dealsFeed.DealsFeedFragment;
+import com.uele.reidx.android.ui.fragments.dash.favoriteFeed.FavoriteFeedFragment;
+import com.uele.reidx.android.ui.fragments.dash.myDealFeed.MyDealsFeedFragment;
 import com.uele.reidx.android.ui.fragments.feed.FeedFragment;
 import com.uele.reidx.android.ui.fragments.liveFeed.LiveFeedFragment;
 import com.uele.reidx.android.ui.fragments.setting.SettingFragment;
@@ -62,11 +64,11 @@ public interface ActivityComponent {
     void inject(TenantActivity activity);
 
     void inject(DashBoardFragment fragment);
-    void inject(DealsFragment fragment);
-   // void inject(FavoriteFeedFragment fragment);
-   void inject(FeedFragment fragment);
+    void inject(DealsFeedFragment fragment);
+    void inject(FavoriteFeedFragment fragment);
+    void inject(FeedFragment fragment);
     void inject(LiveFeedFragment fragment);
-   // void inject(MyDealFeedFragment fragment);
+    void inject(MyDealsFeedFragment fragment);
     void inject(SettingFragment fragment);
 
 }

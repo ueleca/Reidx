@@ -1,5 +1,6 @@
 /*
- * Copyright 2016 Brian Donaldson
+ * Copyright 2017 Uele, Inc
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,11 +14,22 @@
  * limitations under the License.
  */
 
-package com.uele.reidx.android.ui.fragments.dash.myDealFeed;
+package com.uele.reidx.android.ui.fragments.dash.dealsFeed;
 
 import com.uele.reidx.android.ui.base.ReidxView;
 
-public interface MyDealFeedReidxView extends ReidxView {
-
-
+public interface DealsFeedReidxView extends ReidxView {
 }
+
+
+        /*
+        void showLoading();
+        void hideLoading();
+        void renderBrokers(final List<Deal> deals);
+        void setupList();
+        void setupAdapter();
+        void displayFoundDeals(ArrayList<Deal> deal);
+        void displayFailedSearch();
+        void displayNetworkError();
+        void displayServerError();
+        */

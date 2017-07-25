@@ -14,45 +14,67 @@
  * limitations under the License.
  */
 
-package com.uele.reidx.android.ui.fragments.dash.dealFeed;
+package com.uele.reidx.android.ui.fragments.dash.myDealFeed;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.uele.reidx.android.R;
+import com.uele.reidx.android.di.component.ActivityComponent;
 import com.uele.reidx.android.ui.base.BaseFragment;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
-public class DealFeedFragment
-        extends BaseFragment implements DealFeedReidxView, DealFeedAdapter.Callback {
+public class MyDealsFeedFragment
+        extends BaseFragment implements MyDealsFeedReidxView, MyDealsFeedAdapter.Callback {
 
-    private static final String TAG = "DealFeedFragment";
-
-    @Inject
-    DealFeedReidxPresenter<DealFeedReidxView> mDealFeedPresenter;
+    private static final String TAG = "MyDealsFeedFragment";
 
     @Inject
-    DealFeedAdapter mDealFeedAdapter;
+    MyDealsFeedReidxPresenter<MyDealsFeedReidxView> mMyDealFeedPresenter;
+
+    @Inject
+    MyDealsFeedAdapter mMyDealsFeedAdapter;
 
     @Inject
     LinearLayoutManager mLayoutManager;
 
-    @BindView(R.id.blog_recycler_view)
+    @BindView(R.id.my_deals_recycler_view)
     RecyclerView mRecyclerView;
 
-    public static DealFeedFragment newInstance() {
+    public static MyDealsFeedFragment newInstance() {
         Bundle args = new Bundle();
-        DealFeedFragment fragment = new DealFeedFragment();
+        MyDealsFeedFragment fragment = new MyDealsFeedFragment();
         fragment.setArguments(args);
         return fragment;
     }
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_favourites_feed, container, false);
+
+        ActivityComponent component = getActivityComponent();
+        if (component != null) {
+            component.inject(this);
+            setUnBinder(ButterKnife.bind(this, view));
+            mMyDealFeedPresenter.onAttach(this);
+            mMyDealsFeedAdapter.setCallback(this);
+        }
+        return view;
+    }
+
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -61,7 +83,12 @@ public class DealFeedFragment
 
     @Override
     protected void setUp(View view) {
+        mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        mRecyclerView.setAdapter(mMyDealsFeedAdapter);
 
+        mMyDealFeedPresenter.onViewPrepared();
     }
 
 
@@ -85,9 +112,8 @@ public class DealFeedFragment
 
     }
 
-
     @Override
-    public void onDealsEmptyViewRetryClick() {
+    public void onBlogEmptyViewRetryClick() {
 
     }
 }

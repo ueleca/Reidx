@@ -35,7 +35,7 @@ public class SettingsActivity
         extends BaseActivity implements SettingsReidxView {
 
     @BindView(R.id.toolbar)
-    Toolbar mToolBar;
+    Toolbar mToolbar;
 
     @Inject
     SettingsReidxPresenter<SettingsReidxView> mSettingsPresenter;
@@ -58,7 +58,7 @@ public class SettingsActivity
 
     @Override
     protected void setUp() {
-        setSupportActionBar(mToolBar);
+        setSupportActionBar(mToolbar);
     }
 
     @Override

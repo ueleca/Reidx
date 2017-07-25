@@ -20,6 +20,7 @@ import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 
+import com.uele.reidx.android.data.network.model.DealsResponse;
 import com.uele.reidx.android.data.network.model.FeedResponse;
 import com.uele.reidx.android.di.qualifier.ActivityContext;
 import com.uele.reidx.android.di.scope.PerActivity;
@@ -75,6 +76,18 @@ import com.uele.reidx.android.ui.fragments.dash.DashBoardPagerAdapter;
 import com.uele.reidx.android.ui.fragments.dash.DashBoardPresenter;
 import com.uele.reidx.android.ui.fragments.dash.DashBoardReidxPresenter;
 import com.uele.reidx.android.ui.fragments.dash.DashBoardReidxView;
+import com.uele.reidx.android.ui.fragments.dash.dealsFeed.DealsFeedAdapter;
+import com.uele.reidx.android.ui.fragments.dash.dealsFeed.DealsFeedPresenter;
+import com.uele.reidx.android.ui.fragments.dash.dealsFeed.DealsFeedReidxPresenter;
+import com.uele.reidx.android.ui.fragments.dash.dealsFeed.DealsFeedReidxView;
+import com.uele.reidx.android.ui.fragments.dash.favoriteFeed.FavoriteFeedAdapter;
+import com.uele.reidx.android.ui.fragments.dash.favoriteFeed.FavoriteFeedPresenter;
+import com.uele.reidx.android.ui.fragments.dash.favoriteFeed.FavoriteFeedReidxPresenter;
+import com.uele.reidx.android.ui.fragments.dash.favoriteFeed.FavoriteFeedReidxView;
+import com.uele.reidx.android.ui.fragments.dash.myDealFeed.MyDealsFeedAdapter;
+import com.uele.reidx.android.ui.fragments.dash.myDealFeed.MyDealsFeedPresenter;
+import com.uele.reidx.android.ui.fragments.dash.myDealFeed.MyDealsFeedReidxPresenter;
+import com.uele.reidx.android.ui.fragments.dash.myDealFeed.MyDealsFeedReidxView;
 import com.uele.reidx.android.ui.fragments.deals.DealsPagerAdapter;
 import com.uele.reidx.android.ui.fragments.deals.DealsPresenter;
 import com.uele.reidx.android.ui.fragments.deals.DealsReidxPresenter;
@@ -265,6 +278,24 @@ public class ActivityModule {
     }
 
     @Provides
+    DealsFeedReidxPresenter<DealsFeedReidxView>
+    provideDealFeedPresenter(DealsFeedPresenter< DealsFeedReidxView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    FavoriteFeedReidxPresenter<FavoriteFeedReidxView>
+    provideFavoriteFeedPresenter(FavoriteFeedPresenter<FavoriteFeedReidxView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    MyDealsFeedReidxPresenter<MyDealsFeedReidxView>
+    provideMyDealFeedRPresenter(MyDealsFeedPresenter<MyDealsFeedReidxView> presenter) {
+        return presenter;
+    }
+
+    @Provides
     DealsReidxPresenter<DealsReidxView>
     provideDealsPresenter(DealsPresenter< DealsReidxView> presenter) {
         return presenter;
@@ -273,6 +304,21 @@ public class ActivityModule {
     @Provides
     FeedAdapter provideFeedAdapter() {
         return new FeedAdapter(new ArrayList<FeedResponse.Blog>());
+    }
+
+    @Provides
+    DealsFeedAdapter provideDealsFeedAdapter() {
+        return new DealsFeedAdapter(new ArrayList<DealsResponse.Deals>());
+    }
+
+    @Provides
+    FavoriteFeedAdapter provideFavoriteFeedAdapter() {
+        return new FavoriteFeedAdapter(new ArrayList<FeedResponse.Blog>());
+    }
+
+    @Provides
+    MyDealsFeedAdapter provideMyDealFeedAdapter() {
+        return new MyDealsFeedAdapter(new ArrayList<FeedResponse.Blog>());
     }
 
     @Provides

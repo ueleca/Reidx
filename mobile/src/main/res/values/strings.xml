@@ -122,9 +122,9 @@
     <string name="connection_error">Internet connection lost!</string>
 
     <!--feed-->
-    <string name="title">My Feed</string>
-    <string name="open_source">Open Source</string>
-    <string name="blog">Blog</string>
+    <string name="deals">Deals</string>
+    <string name="favorite">Favourites</string>
+    <string name="myDeals">My Deals</string>
 
     <!--empty state-->
     <string name="empty_screen">We do not have anything\nhere right now.</string>

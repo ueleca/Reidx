@@ -69,42 +69,40 @@ public class DashBoardFragment
             component.inject(this);
             setUnBinder(ButterKnife.bind(this, view));
             mDashBoardPresenter.onAttach(this);
-
         }
         return view;
     }
 
     @Override
-    protected void setUp(View view){
+    protected void setUp(View view) {
         mDashBoardPagerAdapter.setCount(3);
 
         mViewPager.setAdapter(mDashBoardPagerAdapter);
 
-        mTabLayout.addTab(mTabLayout.newTab().setText(getString(R.string.blog)));
-        mTabLayout.addTab(mTabLayout.newTab().setText(getString(R.string.open_source)));
+        mTabLayout.addTab(mTabLayout.newTab().setText(getString(R.string.page_deals)));
+        mTabLayout.addTab(mTabLayout.newTab().setText(getString(R.string.page_favourites)));
+        mTabLayout.addTab(mTabLayout.newTab().setText(getString(R.string.page_my_deals)));
 
         mViewPager.setOffscreenPageLimit(mTabLayout.getTabCount());
-
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
-
         mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
 
-        @Override
-        public void onTabSelected(TabLayout.Tab tab) {
-            mViewPager.setCurrentItem(tab.getPosition());
-        }
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                mViewPager.setCurrentItem(tab.getPosition());
+            }
 
-        @Override
-        public void onTabUnselected(TabLayout.Tab tab) {
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
 
-        }
+            }
 
-        @Override
-        public void onTabReselected(TabLayout.Tab tab) {
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
 
-        }
-    });
-}
+            }
+        });
+    }
 
     @Override
     public void showMessage(String message) {

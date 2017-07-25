@@ -24,7 +24,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.uele.reidx.android.R;
 import com.uele.reidx.android.ui.fragments.dash.favoriteFeed.FavoriteFeedFragment;
-import com.uele.reidx.android.ui.fragments.dash.myDealFeed.MyDealFeedFragment;
+import com.uele.reidx.android.ui.fragments.dash.myDealFeed.MyDealsFeedFragment;
 import com.uele.reidx.android.ui.fragments.liveFeed.LiveFeedFragment;
 
 
@@ -62,7 +62,7 @@ public class MainPagerAdapter
                 result = FavoriteFeedFragment.newInstance();
                 break;
             case 2:
-                result = MyDealFeedFragment.newInstance();
+                result = MyDealsFeedFragment.newInstance();
                 break;
             default:
                 result = null;

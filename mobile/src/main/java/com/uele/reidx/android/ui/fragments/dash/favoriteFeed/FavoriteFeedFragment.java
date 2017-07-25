@@ -19,17 +19,21 @@ package com.uele.reidx.android.ui.fragments.dash.favoriteFeed;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.uele.reidx.android.R;
+import com.uele.reidx.android.di.component.ActivityComponent;
 import com.uele.reidx.android.ui.base.BaseFragment;
-import com.uele.reidx.android.ui.fragments.feed.FeedFragment;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class FavoriteFeedFragment
         extends BaseFragment implements FavoriteFeedReidxView, FavoriteFeedAdapter.Callback {
@@ -45,26 +49,47 @@ public class FavoriteFeedFragment
     @Inject
     LinearLayoutManager mLayoutManager;
 
-    @BindView(R.id.blog_recycler_view)
+    @BindView(R.id.favorite_recycler_view)
     RecyclerView mRecyclerView;
 
-    public static FeedFragment newInstance() {
+    public static FavoriteFeedFragment newInstance() {
         Bundle args = new Bundle();
-        FeedFragment fragment = new FeedFragment();
+        FavoriteFeedFragment fragment = new FavoriteFeedFragment();
         fragment.setArguments(args);
         return fragment;
     }
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_favourites_feed, container, false);
+
+        ActivityComponent component = getActivityComponent();
+        if (component != null) {
+            component.inject(this);
+            setUnBinder(ButterKnife.bind(this, view));
+            mFavoriteFeedPresenter.onAttach(this);
+            mFavoriteFeedAdapter.setCallback(this);
+        }
+        return view;
+    }
+
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
     }
 
     @Override
     protected void setUp(View view) {
+        mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        mRecyclerView.setAdapter(mFavoriteFeedAdapter);
 
+        mFavoriteFeedPresenter.onViewPrepared();
     }
-
 
     @Override
     public void showMessage(String message) {

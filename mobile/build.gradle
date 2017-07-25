@@ -96,14 +96,13 @@ android {
     }
 
     signingConfigs {
-
         debug {
-
             storeFile file("debug.keystore")
+            storePassword project.signing.storePassword
+            keyAlias project.signing.keyAlias
+            keyPassword project.signing.keyPassword
         }
-
         release {
-
             storeFile file(project.signing.storeFilePath)
             storePassword project.signing.storePassword
             keyAlias project.signing.keyAlias
@@ -125,7 +124,6 @@ configurations.all {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-
     // android support libraries
     compile "com.android.support:animated-vector-drawable:$rootProject.supportLibraryVersion"
     compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
@@ -186,7 +184,6 @@ dependencies {
     // Reactive
     compile "io.reactivex.rxjava2:rxjava:$rootProject.rxjava2Version"
     compile "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroidVersion"
-
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'de.hdodenhof:circleimageview:2.1.0'
     compile 'com.squareup.okhttp3:okhttp:3.8.1'

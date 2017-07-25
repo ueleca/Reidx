@@ -1,6 +1,5 @@
 /*
- * Copyright 2017 Uele, Inc
- *
+ * Copyright 2016 Brian Donaldson
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,11 +13,11 @@
  * limitations under the License.
  */
 
-package com.uele.reidx.android.ui.fragments.dash.dealFeed;
+package com.uele.reidx.android.ui.fragments.dash.myDealFeed;
 
-import com.uele.reidx.android.di.scope.PerActivity;
-import com.uele.reidx.android.ui.base.ReidxPresenter;
+import com.uele.reidx.android.ui.base.ReidxView;
 
-@PerActivity
-public interface DealFeedReidxPresenter<V extends DealFeedReidxView> extends ReidxPresenter<V> {
+public interface MyDealsFeedReidxView extends ReidxView {
+
+
 }

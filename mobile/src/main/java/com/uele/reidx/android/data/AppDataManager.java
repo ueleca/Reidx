@@ -208,6 +208,5 @@ public class AppDataManager
     @Override
     public Observable<FeedResponse> getBlogApiCall() {
         return mApiHelper.getBlogApiCall();
-
     }
 }

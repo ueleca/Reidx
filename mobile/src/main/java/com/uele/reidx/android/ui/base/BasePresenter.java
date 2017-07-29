@@ -24,7 +24,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 import com.uele.reidx.android.R;
-import com.uele.reidx.android.data.DataManager;
 import com.uele.reidx.android.data.network.model.ApiError;
 import com.uele.reidx.android.utils.AppConstants;
 import com.uele.reidx.android.utils.rx.SchedulerProvider;
@@ -40,34 +39,36 @@ import io.reactivex.disposables.CompositeDisposable;
  * can be accessed from the children classes by calling getMvpView().
  */
 
-public class BasePresenter <V extends ReidxView> implements ReidxPresenter<V> {
+public class BasePresenter<V extends ReidxView, I extends ReidxInteractor>
+        implements ReidxPresenter<V, I> {
 
     private static final String TAG = "BasePresenter";
 
-    private final DataManager mDataManager;
     private final SchedulerProvider mSchedulerProvider;
     private final CompositeDisposable mCompositeDisposable;
 
     private V mReidxView;
+    private I mReidxInteractor;
 
     @Inject
-    public BasePresenter(DataManager dataManager,
+    public BasePresenter(I reidxInteractor,
                          SchedulerProvider schedulerProvider,
                          CompositeDisposable compositeDisposable) {
-        this.mDataManager = dataManager;
+        this.mReidxInteractor = reidxInteractor;
         this.mSchedulerProvider = schedulerProvider;
         this.mCompositeDisposable = compositeDisposable;
     }
 
     @Override
-    public void onAttach(V nextView) {
-        mReidxView = nextView;
+    public void onAttach(V reidxView) {
+        mReidxView = reidxView;
     }
 
     @Override
     public void onDetach() {
         mCompositeDisposable.dispose();
         mReidxView = null;
+        mReidxInteractor = null;
     }
 
     public boolean isViewAttached() {
@@ -78,12 +79,14 @@ public class BasePresenter <V extends ReidxView> implements ReidxPresenter<V> {
         return mReidxView;
     }
 
-    public void checkViewAttached() {
-        if (!isViewAttached()) throw new MvpViewNotAttachedException();
+    @Override
+    public I getInteractor() {
+        return mReidxInteractor;
     }
 
-    public DataManager getDataManager() {
-        return mDataManager;
+    @Override
+    public void checkViewAttached() throws ReidxViewNotAttachedException {
+        if (!isViewAttached()) throw new ReidxViewNotAttachedException();
     }
 
     public SchedulerProvider getSchedulerProvider() {
@@ -143,11 +146,11 @@ public class BasePresenter <V extends ReidxView> implements ReidxPresenter<V> {
 
     @Override
     public void setUserAsLoggedOut() {
-        getDataManager().setAccessToken(null);
+        getInteractor().setAccessToken(null);
     }
 
-    public static class MvpViewNotAttachedException extends RuntimeException {
-        public MvpViewNotAttachedException() {
+    public static class ReidxViewNotAttachedException extends RuntimeException {
+        public ReidxViewNotAttachedException() {
             super("Please call Presenter.onAttach(ReidxView) before" +
                     " requesting data to the Presenter");
         }

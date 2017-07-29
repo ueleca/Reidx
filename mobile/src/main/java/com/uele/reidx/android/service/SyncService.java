@@ -23,19 +23,19 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 
 import com.uele.reidx.android.ReidxApp;
-import com.uele.reidx.android.data.DataManager;
 import com.uele.reidx.android.di.component.DaggerServiceComponent;
 import com.uele.reidx.android.di.component.ServiceComponent;
 import com.uele.reidx.android.utils.ReidxLogger;
 
 import javax.inject.Inject;
 
-public class SyncService extends Service {
+public class SyncService
+        extends Service {
 
     private static final String TAG = "SyncService";
 
     @Inject
-    DataManager mDataManager;
+    SyncInteractor mInteractor;
 
     public static Intent getStartIntent(Context context) {
         return new Intent(context, SyncService.class);

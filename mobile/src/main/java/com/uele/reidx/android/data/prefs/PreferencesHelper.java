@@ -16,13 +16,13 @@
 
 package com.uele.reidx.android.data.prefs;
 
-import com.uele.reidx.android.data.DataManager;
+import com.uele.reidx.android.utils.AppConstants;
 
 public interface PreferencesHelper {
 
     int getCurrentUserLoggedInMode();
 
-    void setCurrentUserLoggedInMode(DataManager.LoggedInMode mode);
+    void setCurrentUserLoggedInMode(AppConstants.LoggedInMode mode);
 
     Long getCurrentUserId();
 

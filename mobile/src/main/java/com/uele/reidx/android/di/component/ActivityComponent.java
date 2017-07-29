@@ -37,6 +37,7 @@ import com.uele.reidx.android.ui.fragments.dash.DashBoardFragment;
 import com.uele.reidx.android.ui.fragments.dash.dealsFeed.DealsFeedFragment;
 import com.uele.reidx.android.ui.fragments.dash.favoriteFeed.FavoriteFeedFragment;
 import com.uele.reidx.android.ui.fragments.dash.myDealFeed.MyDealsFeedFragment;
+import com.uele.reidx.android.ui.fragments.deals.DealsFragment;
 import com.uele.reidx.android.ui.fragments.feed.FeedFragment;
 import com.uele.reidx.android.ui.fragments.liveFeed.LiveFeedFragment;
 import com.uele.reidx.android.ui.fragments.setting.SettingFragment;
@@ -47,28 +48,51 @@ import dagger.Component;
 @Component(dependencies = ApplicationComponent.class, modules = ActivityModule.class)
 public interface ActivityComponent {
     void inject(AboutActivity activity);
+
     void inject(AnalyzerActivity activity);
+
     void inject(LoginActivity activity);
+
     void inject(LeadsActivity activity);
+
     void inject(MainActivity activity);
+
     void inject(NotificationsActivity activity);
+
     void inject(PortfolioActivity activity);
+
     void inject(PropertyActivity activity);
+
     void inject(ProfileActivity activity);
+
     void inject(ResetActivity activity);
+
     void inject(ROIActivity activity);
+
     void inject(SearchActivity activity);
+
     void inject(SavedActivity activity);
+
     void inject(SplashActivity activity);
+
     void inject(SettingsActivity activity);
+
     void inject(TenantActivity activity);
 
     void inject(DashBoardFragment fragment);
+
     void inject(DealsFeedFragment fragment);
+
+    void inject(DealsFragment fragment);
+
     void inject(FavoriteFeedFragment fragment);
+
     void inject(FeedFragment fragment);
+
     void inject(LiveFeedFragment fragment);
+
     void inject(MyDealsFeedFragment fragment);
+
     void inject(SettingFragment fragment);
 
 }

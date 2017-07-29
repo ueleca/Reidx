@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Uele, Inc.
+ * Copyright 2017 Uele, Inc
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,22 +14,7 @@
  * limitations under the License.
  */
 
-package com.uele.reidx.android.data;
+package com.uele.reidx.android.ui.fragments.dash.myDealFeed;
 
-import android.content.Context;
-import android.util.Log;
-import android.widget.Toast;
-
-public class L {
-    public static void m(String message) {
-        Log.d("Deal", "" + message);
-    }
-
-    public static void t(Context context, String message) {
-        Toast.makeText(context, message + "", Toast.LENGTH_SHORT).show();
-    }
-
-    public static void T(Context context, String message) {
-        Toast.makeText(context, message + "", Toast.LENGTH_LONG).show();
-    }
+public class MyDealsFeedReidxInteractor {
 }

@@ -14,17 +14,7 @@
  * limitations under the License.
  */
 
-package com.uele.reidx.android.data;
+package com.uele.reidx.android.ui.activities.notifications;
 
-import okhttp3.OkHttpClient;
-
-public abstract class OkHttpProvider {
-    private static OkHttpClient instance = null;
-
-    public static OkHttpClient getOkHttpInstance() {
-        if (instance == null) {
-            instance = new OkHttpClient();
-        }
-        return instance;
-    }
+public class NotificationsInteractor {
 }

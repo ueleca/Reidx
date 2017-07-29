@@ -22,7 +22,9 @@ import android.os.Parcelable;
 import java.util.Date;
 
 
-public class Deal implements Parcelable {
+public class Deal
+        implements Parcelable {
+
     @SuppressWarnings("unused")
     public static final Parcelable.Creator<Deal> CREATOR = new Parcelable.Creator<Deal>() {
         @Override
@@ -207,7 +209,7 @@ public class Deal implements Parcelable {
 
     @Override
     public int describeContents() {
-        L.m("describe Contents Deal");
+
         return 0;
     }
 

@@ -18,9 +18,26 @@ package com.uele.reidx.android.ui.base;
 
 import com.androidnetworking.error.ANError;
 
-public interface ReidxPresenter<V extends ReidxView> {
+/**
+ * Every presenter in the app must either implement this interface or extend BasePresenter
+ * indicating the MvpView type that wants to be attached with.
+ */
+
+public interface ReidxPresenter<V extends ReidxView, I extends ReidxInteractor> {
+
     void onAttach(V reidxView);
+
     void onDetach();
+
+    V getReidxView();
+
+    I getInteractor();
+
+    boolean isViewAttached();
+
+    void checkViewAttached() throws BasePresenter.ReidxViewNotAttachedException;
+
     void handleApiError(ANError error);
+
     void setUserAsLoggedOut();
 }

@@ -26,7 +26,9 @@ import org.joda.time.format.DateTimeFormatter;
 
 import java.io.IOException;
 
-public final class DateTimeConverter extends TypeAdapter<DateTime> {
+public final class DateTimeConverter
+        extends TypeAdapter<DateTime> {
+
     private static final DateTimeFormatter DATE_TIME_FORMAT =
             DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ss'Z'");
 

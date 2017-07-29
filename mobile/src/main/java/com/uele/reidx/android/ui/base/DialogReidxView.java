@@ -17,6 +17,5 @@
 package com.uele.reidx.android.ui.base;
 
 public interface DialogReidxView extends ReidxView {
-
     void dismissDialog(String tag);
 }

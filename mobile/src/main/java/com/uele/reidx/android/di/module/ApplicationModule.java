@@ -25,10 +25,12 @@ import android.view.inputmethod.InputMethodManager;
 
 import com.uele.reidx.android.BuildConfig;
 import com.uele.reidx.android.R;
-import com.uele.reidx.android.data.AppDataManager;
 import com.uele.reidx.android.data.DataManager;
 import com.uele.reidx.android.data.db.AppDbHelper;
 import com.uele.reidx.android.data.db.DbHelper;
+import com.uele.reidx.android.data.db.DbOpenHelper;
+import com.uele.reidx.android.data.db.model.DaoMaster;
+import com.uele.reidx.android.data.db.model.DaoSession;
 import com.uele.reidx.android.data.network.ApiHeader;
 import com.uele.reidx.android.data.network.ApiHelper;
 import com.uele.reidx.android.data.network.AppApiHelper;
@@ -125,6 +127,12 @@ public class ApplicationModule {
                 .setDefaultFontPath("fonts/source-sans-pro/SourceSansPro-Regular.ttf")
                 .setFontAttrId(R.attr.fontPath)
                 .build();
+    }
+
+    @Provides
+    @Singleton
+    DaoSession provideDaoSession(DbOpenHelper dbOpenHelper) {
+        return new DaoMaster(dbOpenHelper.getWritableDb()).newSession();
     }
 
     @Provides

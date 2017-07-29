@@ -41,9 +41,9 @@ ext {
     supportLibraryVersion = '25.3.1'
 
     // 3rd Party
-    butterKnifeVersion = '8.5.1'
-    dagger2Version = '2.8'
-    debugDBVersion = '1.0.0'
+    butterKnifeVersion = '8.6.0'
+    dagger2Version = '2.11'
+    debugDBVersion = '1.0.1'
     dexMakerVersion = '1.2'
     fireBaseVersion = '11.0.2'
     glideVersion = '3.7.0'

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Brian Donaldson
+ * Copyright (C) 2017 Uele, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@ import android.webkit.WebView;
 import android.widget.ProgressBar;
 
 import com.uele.reidx.android.R;
-import com.uele.reidx.android.ui.activities.web.WebViewReidxView;
+import com.uele.reidx.android.ui.activities.webView.WebViewReidxView;
 import com.uele.reidx.android.ui.base.BaseFragment;
 
 import butterknife.BindView;

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Brian Donaldson
+ * Copyright (C) 2017 Uele, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,12 +14,7 @@
  * limitations under the License.
  */
 
-package com.uele.reidx.android.ui.activities.web;
+package com.uele.reidx.android.ui.activities.settings;
 
-
-import com.uele.reidx.android.di.scope.PerActivity;
-import com.uele.reidx.android.ui.base.ReidxPresenter;
-
-@PerActivity
-public interface WebViewReidxPresenter<V extends WebViewReidxView> extends ReidxPresenter<V> {
+public class SettingsInteractor {
 }

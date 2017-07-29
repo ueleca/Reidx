@@ -21,7 +21,6 @@ import android.content.Context;
 
 import com.uele.reidx.android.BuildConfig;
 import com.uele.reidx.android.R;
-import com.uele.reidx.android.data.AppDataManager;
 import com.uele.reidx.android.data.DataManager;
 import com.uele.reidx.android.data.db.AppDbHelper;
 import com.uele.reidx.android.data.db.DbHelper;

@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-
 package com.uele.reidx.android.ui.activities.login;
 
 import com.uele.reidx.android.di.scope.PerActivity;

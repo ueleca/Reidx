@@ -1,5 +1,6 @@
 /*
- * Copyright 2016 Brian Donaldson
+ * Copyright (C) 2017 Uele, Inc.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -23,38 +24,36 @@ import com.uele.reidx.android.utils.rx.SchedulerProvider;
 import javax.inject.Inject;
 
 import io.reactivex.ObservableSource;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
-import io.reactivex.schedulers.Schedulers;
 
-public class SplashPresenter<V extends SplashReidxView> extends BasePresenter<V>
-        implements SplashReidxPresenter<V> {
+public class SplashPresenter<V extends SplashReidxView , I extends SplashReidxInteractor>
+        extends BasePresenter<V, I> implements SplashReidxPresenter<V, I> {
 
     private static final String TAG = SplashPresenter.class.getSimpleName();
 
     @Inject
-    public SplashPresenter(DataManager dataManager,
+    public SplashPresenter(I reidxInteractor,
                            SchedulerProvider schedulerProvider,
                            CompositeDisposable compositeDisposable) {
-        super(dataManager, schedulerProvider, compositeDisposable);
+        super(reidxInteractor, schedulerProvider, compositeDisposable);
     }
 
     @Override
-    public void onAttach(V nextView) {
-        super.onAttach(nextView);
+    public void onAttach(V reidxView) {
+        super.onAttach(reidxView);
 
         getReidxView().startSyncService();
 
-        getCompositeDisposable().add(getDataManager()
+        getCompositeDisposable().add(getInteractor()
                 .seedDatabaseQuestions()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(getSchedulerProvider().io())
+                .observeOn(getSchedulerProvider().ui())
                 .concatMap(new Function<Boolean, ObservableSource<Boolean>>() {
                     @Override
                     public ObservableSource<Boolean> apply(Boolean aBoolean) throws Exception {
-                        return getDataManager().seedDatabaseOptions();
+                        return getInteractor().seedDatabaseOptions();
                     }
                 })
                 .subscribe(new Consumer<Boolean>() {
@@ -78,7 +77,7 @@ public class SplashPresenter<V extends SplashReidxView> extends BasePresenter<V>
     }
 
     private void decideReidxActivity() {
-        if (getDataManager().getCurrentUserLoggedInMode()
+        if (getInteractor().getCurrentUserLoggedInMode()
                 == DataManager.LoggedInMode.LOGGED_IN_MODE_LOGGED_OUT.getType()) {
             getReidxView().openLoginActivity();
         } else {

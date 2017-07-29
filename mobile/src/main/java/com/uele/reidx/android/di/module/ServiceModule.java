@@ -18,7 +18,11 @@ package com.uele.reidx.android.di.module;
 
 import android.app.Service;
 
+import com.uele.reidx.android.service.SyncInteractor;
+import com.uele.reidx.android.service.SyncReidxInteractor;
+
 import dagger.Module;
+import dagger.Provides;
 
 @Module
 public class ServiceModule {
@@ -27,5 +31,10 @@ public class ServiceModule {
 
     public ServiceModule(Service service) {
         mService = service;
+    }
+
+    @Provides
+    SyncReidxInteractor provideSyncReidxInteractor(SyncInteractor interactor) {
+        return interactor;
     }
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Brian Donaldson
+ * Copyright (C) 2017 Uele, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,20 +14,20 @@
  * limitations under the License.
  */
 
-package com.uele.reidx.android.ui.activities.web;
+package com.uele.reidx.android.ui.activities.webView;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
 import com.uele.reidx.android.R;
-import com.uele.reidx.android.ui.base.BaseFragmentActivity;
+import com.uele.reidx.android.ui.base.BaseActivity;
 import com.uele.reidx.android.ui.fragments.web.WebViewFragment;
 
 import butterknife.BindView;
 
 
 public abstract class WebViewActivity
-        extends BaseFragmentActivity implements WebViewFragment.Listener {
+        extends BaseActivity implements WebViewFragment.Listener {
 
     @BindView(R.id.toolbar)
     Toolbar mToolbar;

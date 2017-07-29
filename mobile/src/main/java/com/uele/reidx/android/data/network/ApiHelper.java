@@ -21,8 +21,11 @@ import com.uele.reidx.android.data.network.model.LoginRequest;
 import com.uele.reidx.android.data.network.model.LoginResponse;
 import com.uele.reidx.android.data.network.model.LogoutResponse;
 
+import javax.inject.Singleton;
+
 import io.reactivex.Observable;
 
+@Singleton
 public interface ApiHelper {
 
     ApiHeader getApiHeader();
@@ -33,7 +36,7 @@ public interface ApiHelper {
 
     Observable<LoginResponse> doServerLoginApiCall(LoginRequest.ServerLoginRequest request);
 
-    Observable<FeedResponse> getBlogApiCall();
-
     Observable<LogoutResponse> doLogoutApiCall();
+
+    Observable<FeedResponse> getBlogApiCall();
 }

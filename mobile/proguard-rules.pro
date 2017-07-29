@@ -29,3 +29,5 @@
 -dontwarn okio.**
 -dontwarn org.greenrobot.greendao.database.**
 -dontwarn rx.**
+-dontwarn javax.annotation.Nullable
+-dontwarn javax.annotation.ParametersAreNonnullByDefault

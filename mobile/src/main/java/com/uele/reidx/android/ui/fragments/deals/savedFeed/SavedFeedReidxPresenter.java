@@ -16,9 +16,10 @@
 
 package com.uele.reidx.android.ui.fragments.deals.savedFeed;
 
-import com.uele.reidx.android.di.scope.PerActivity;
+import com.uele.reidx.android.ui.base.ReidxInteractor;
 import com.uele.reidx.android.ui.base.ReidxPresenter;
+import com.uele.reidx.android.ui.base.ReidxView;
 
-@PerActivity
-public interface SavedFeedReidxPresenter<V extends SavedFeedReidxView> extends ReidxPresenter<V> {
+public interface SavedFeedReidxPresenter <V extends ReidxView,
+        I extends ReidxInteractor>  extends ReidxPresenter<V, I> {
 }

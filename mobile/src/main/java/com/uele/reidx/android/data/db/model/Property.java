@@ -22,13 +22,12 @@ import org.greenrobot.greendao.DaoException;
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
-import org.greenrobot.greendao.annotation.Property;
 import org.greenrobot.greendao.annotation.ToMany;
 
 import java.util.List;
 
-@Entity(nameInDb = "questions")
-public class Question {
+@Entity(nameInDb = "property")
+public class Property {
 
     @Expose
     @SerializedName("id")
@@ -36,27 +35,27 @@ public class Question {
     private Long id;
 
     @Expose
-    @SerializedName("question_text")
-    @Property(nameInDb = "question_text")
-    private String questionText;
+    @SerializedName("property_text")
+    @org.greenrobot.greendao.annotation.Property(nameInDb = "property_text")
+    private String propertyText;
 
     @Expose
-    @SerializedName("question_img_url")
-    @Property(nameInDb = "question_img_url")
+    @SerializedName("property_img_url")
+    @org.greenrobot.greendao.annotation.Property(nameInDb = "property_img_url")
     private String imgUrl;
 
     @Expose
     @SerializedName("created_at")
-    @Property(nameInDb = "created_at")
+    @org.greenrobot.greendao.annotation.Property(nameInDb = "created_at")
     private String createdAt;
 
     @Expose
     @SerializedName("updated_at")
-    @Property(nameInDb = "updated_at")
+    @org.greenrobot.greendao.annotation.Property(nameInDb = "updated_at")
     private String updatedAt;
 
-    @ToMany(referencedJoinProperty = "questionId")
-    private List<Option> optionList;
+    @ToMany(referencedJoinProperty = "propertyId")
+    private List<Deals> optionList;
 
     /**
      * Used to resolve relations
@@ -71,17 +70,17 @@ public class Question {
     private transient QuestionDao myDao;
 
     @Generated(hash = 103353390)
-    public Question(Long id, String questionText, String imgUrl, String createdAt,
+    public Property(Long id, String propertyText, String imgUrl, String createdAt,
                     String updatedAt) {
         this.id = id;
-        this.questionText = questionText;
+        this.propertyText = propertyText;
         this.imgUrl = imgUrl;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
 
     @Generated(hash = 1868476517)
-    public Question() {
+    public Property() {
     }
 
     public Long getId() {
@@ -93,11 +92,11 @@ public class Question {
     }
 
     public String getQuestionText() {
-        return this.questionText;
+        return this.propertyText;
     }
 
-    public void setQuestionText(String questionText) {
-        this.questionText = questionText;
+    public void setQuestionText(String propertyText) {
+        this.propertyText = propertyText;
     }
 
     public String getCreatedAt() {
@@ -121,14 +120,14 @@ public class Question {
      * Changes to to-many relations are not persisted, make changes to the target entity.
      */
     @Generated(hash = 1773152342)
-    public List<Option> getOptionList() {
+    public List<Deals> getOptionList() {
         if (optionList == null) {
             final DaoSession daoSession = this.daoSession;
             if (daoSession == null) {
                 throw new DaoException("Entity is detached from DAO context");
             }
             OptionDao targetDao = daoSession.getOptionDao();
-            List<Option> optionListNew = targetDao._queryQuestion_OptionList(id);
+            List<Deals> optionListNew = targetDao._queryQuestion_OptionList(id);
             synchronized (this) {
                 if (optionList == null) {
                     optionList = optionListNew;
@@ -190,11 +189,12 @@ public class Question {
         this.imgUrl = imgUrl;
     }
 
-    /** called by internal mechanisms, do not call yourself. */
+    /**
+     * called by internal mechanisms, do not call yourself.
+     */
     @Generated(hash = 754833738)
     public void __setDaoSession(DaoSession daoSession) {
         this.daoSession = daoSession;
         myDao = daoSession != null ? daoSession.getQuestionDao() : null;
     }
-    
 }

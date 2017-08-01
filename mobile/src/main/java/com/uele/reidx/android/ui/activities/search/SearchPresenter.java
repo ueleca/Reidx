@@ -16,7 +16,6 @@
 
 package com.uele.reidx.android.ui.activities.search;
 
-import com.uele.reidx.android.data.DataManager;
 import com.uele.reidx.android.ui.base.BasePresenter;
 import com.uele.reidx.android.utils.rx.SchedulerProvider;
 

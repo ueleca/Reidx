@@ -19,16 +19,15 @@ package com.uele.reidx.android.ui.fragments.dash.dealsFeed;
 import com.uele.reidx.android.ui.base.ReidxView;
 
 public interface DealsFeedReidxView extends ReidxView {
+
 }
-
-
         /*
         void showLoading();
         void hideLoading();
-        void renderBrokers(final List<Deal> deals);
+        void renderBrokers(final List<DealEx> deals);
         void setupList();
         void setupAdapter();
-        void displayFoundDeals(ArrayList<Deal> deal);
+        void displayFoundDeals(ArrayList<DealEx> deal);
         void displayFailedSearch();
         void displayNetworkError();
         void displayServerError();

@@ -16,10 +16,11 @@
 
 package com.uele.reidx.android.ui.fragments.deals.viewedFeed;
 
-import com.uele.reidx.android.di.scope.PerActivity;
+import com.uele.reidx.android.ui.base.ReidxInteractor;
 import com.uele.reidx.android.ui.base.ReidxPresenter;
+import com.uele.reidx.android.ui.base.ReidxView;
 
-@PerActivity
-public interface ViewedFeedReidxPresenter<V extends ViewedFeedReidxView> extends ReidxPresenter<V> {
+public interface ViewedFeedReidxPresenter  <V extends ReidxView,
+        I extends ReidxInteractor>  extends ReidxPresenter<V, I> {
 }
 

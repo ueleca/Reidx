@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Uele, Inc.
+ * Copyright 2017 Uele, Inc
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,17 +14,9 @@
  * limitations under the License.
  */
 
-package com.uele.reidx.android.data.comparator;
+package com.uele.reidx.android.ui.fragments.deals.savedFeed;
 
-import com.uele.reidx.android.data.Deal;
+import com.uele.reidx.android.ui.base.ReidxInteractor;
 
-import java.util.Comparator;
-
-public class DealDateComparator
-        implements Comparator<Deal> {
-
-    @Override
-    public int compare(Deal lhs, Deal rhs) {
-        return lhs.getReleaseDateTheater().compareTo(rhs.getReleaseDateTheater());
-    }
+public interface SavedFeedReidxInteractor extends ReidxInteractor {
 }

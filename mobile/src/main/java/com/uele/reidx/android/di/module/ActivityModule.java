@@ -21,7 +21,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 
 import com.uele.reidx.android.data.network.model.DealsResponse;
-import com.uele.reidx.android.data.network.model.FeedResponse;
+import com.uele.reidx.android.data.network.model.PropertyResponse;
 import com.uele.reidx.android.di.qualifier.ActivityContext;
 import com.uele.reidx.android.di.scope.PerActivity;
 import com.uele.reidx.android.ui.activities.about.AboutPresenter;
@@ -303,7 +303,7 @@ public class ActivityModule {
 
     @Provides
     FeedAdapter provideFeedAdapter() {
-        return new FeedAdapter(new ArrayList<FeedResponse.Blog>());
+        return new FeedAdapter(new ArrayList<PropertyResponse.Blog>());
     }
 
     @Provides
@@ -313,12 +313,12 @@ public class ActivityModule {
 
     @Provides
     FavoriteFeedAdapter provideFavoriteFeedAdapter() {
-        return new FavoriteFeedAdapter(new ArrayList<FeedResponse.Blog>());
+        return new FavoriteFeedAdapter(new ArrayList<PropertyResponse.Blog>());
     }
 
     @Provides
     MyDealsFeedAdapter provideMyDealFeedAdapter() {
-        return new MyDealsFeedAdapter(new ArrayList<FeedResponse.Blog>());
+        return new MyDealsFeedAdapter(new ArrayList<PropertyResponse.Blog>());
     }
 
     @Provides
@@ -333,7 +333,7 @@ public class ActivityModule {
 
     @Provides
     LiveFeedAdapter provideLiveFeedAdapter() {
-        return new LiveFeedAdapter(new ArrayList<FeedResponse.Blog>());
+        return new LiveFeedAdapter(new ArrayList<PropertyResponse.Blog>());
     }
 
     @Provides

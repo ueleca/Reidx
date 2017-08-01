@@ -18,7 +18,6 @@ package com.uele.reidx.android;
 
 import android.content.Context;
 
-import com.uele.reidx.android.data.DataManager;
 import com.uele.reidx.android.di.component.DaggerTestComponent;
 import com.uele.reidx.android.di.component.TestComponent;
 import com.uele.reidx.android.di.module.ApplicationTestModule;

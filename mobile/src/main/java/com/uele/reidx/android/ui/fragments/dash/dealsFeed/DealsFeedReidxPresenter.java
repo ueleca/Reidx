@@ -16,10 +16,10 @@
 
 package com.uele.reidx.android.ui.fragments.dash.dealsFeed;
 
-import com.uele.reidx.android.di.scope.PerActivity;
 import com.uele.reidx.android.ui.base.ReidxPresenter;
 
-@PerActivity
-public interface DealsFeedReidxPresenter<V extends DealsFeedReidxView> extends ReidxPresenter<V> {
+public interface DealsFeedReidxPresenter<V extends DealsFeedReidxView,
+        I extends DealsFeedReidxInteractor> extends ReidxPresenter<V, I> {
+
     void onViewPrepared();
 }

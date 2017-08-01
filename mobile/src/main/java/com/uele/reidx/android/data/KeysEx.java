@@ -16,7 +16,7 @@
 
 package com.uele.reidx.android.data;
 
-public interface Keys {
+public interface KeysEx {
 
     public interface EndpointDeals {
         public static final String KEY_Tenant = "movies";

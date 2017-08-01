@@ -16,7 +16,7 @@ import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
 
 /**
- * Image with rounded corners
+ * ImageEx with rounded corners
  *
  * You can find the original source here:
  * http://www.curious-creature.org/2012/12/11/android-recipe-1-image-with-rounded-corners/

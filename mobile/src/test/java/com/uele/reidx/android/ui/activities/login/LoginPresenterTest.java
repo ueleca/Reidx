@@ -16,7 +16,6 @@
 
 package com.uele.reidx.android.ui.activities.login;
 
-import com.uele.reidx.android.data.DataManager;
 import com.uele.reidx.android.data.network.model.LoginRequest;
 import com.uele.reidx.android.data.network.model.LoginResponse;
 import com.uele.reidx.android.utils.rx.TestSchedulerProvider;

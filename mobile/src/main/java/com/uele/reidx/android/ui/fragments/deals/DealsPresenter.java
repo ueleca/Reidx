@@ -16,7 +16,6 @@
 
 package com.uele.reidx.android.ui.fragments.deals;
 
-import com.uele.reidx.android.data.DataManager;
 import com.uele.reidx.android.ui.base.BasePresenter;
 import com.uele.reidx.android.utils.rx.SchedulerProvider;
 
@@ -24,15 +23,16 @@ import javax.inject.Inject;
 
 import io.reactivex.disposables.CompositeDisposable;
 
-public class DealsPresenter<V extends DealsReidxView> extends BasePresenter<V>
-        implements DealsReidxPresenter<V> {
+public class DealsPresenter<V extends DealsReidxView,
+        I extends DealsReidxInteractor> extends BasePresenter<V, I>
+        implements DealsReidxPresenter<V, I> {
 
     private static final String TAG = DealsPresenter.class.getSimpleName();
 
     @Inject
-    public DealsPresenter(DataManager dataManager,
+    public DealsPresenter(I reidxInteractor,
                           SchedulerProvider schedulerProvider,
                           CompositeDisposable compositeDisposable) {
-        super(dataManager, schedulerProvider, compositeDisposable);
+        super(reidxInteractor, schedulerProvider, compositeDisposable);
     }
 }

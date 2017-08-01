@@ -24,7 +24,7 @@ import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Property;
 
 @Entity(nameInDb = "options")
-public class Option {
+public class Deals {
 
     @Expose
     @SerializedName("id")
@@ -57,8 +57,8 @@ public class Option {
     private String updatedAt;
 
     @Generated(hash = 435722130)
-    public Option(Long id, String optionText, Long questionId, boolean isCorrect,
-                  String createdAt, String updatedAt) {
+    public Deals(Long id, String optionText, Long questionId, boolean isCorrect,
+                 String createdAt, String updatedAt) {
         this.id = id;
         this.optionText = optionText;
         this.questionId = questionId;
@@ -68,7 +68,7 @@ public class Option {
     }
 
     @Generated(hash = 104107376)
-    public Option() {
+    public Deals() {
     }
 
     public Long getId() {

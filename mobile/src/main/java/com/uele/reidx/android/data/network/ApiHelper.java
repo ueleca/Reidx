@@ -16,10 +16,11 @@
 
 package com.uele.reidx.android.data.network;
 
-import com.uele.reidx.android.data.network.model.FeedResponse;
+import com.uele.reidx.android.data.network.model.DealsResponse;
 import com.uele.reidx.android.data.network.model.LoginRequest;
 import com.uele.reidx.android.data.network.model.LoginResponse;
 import com.uele.reidx.android.data.network.model.LogoutResponse;
+import com.uele.reidx.android.data.network.model.PropertyResponse;
 
 import javax.inject.Singleton;
 
@@ -38,5 +39,7 @@ public interface ApiHelper {
 
     Observable<LogoutResponse> doLogoutApiCall();
 
-    Observable<FeedResponse> getBlogApiCall();
+    Observable<PropertyResponse> getPropertyApiCall();
+
+    Observable<DealsResponse> getDealsApiCall();
 }

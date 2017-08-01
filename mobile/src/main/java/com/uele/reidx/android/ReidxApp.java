@@ -20,7 +20,6 @@ import android.app.Application;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.interceptors.HttpLoggingInterceptor.Level;
-import com.uele.reidx.android.data.DataManager;
 import com.uele.reidx.android.di.component.ApplicationComponent;
 import com.uele.reidx.android.di.component.DaggerApplicationComponent;
 import com.uele.reidx.android.di.module.ApplicationModule;

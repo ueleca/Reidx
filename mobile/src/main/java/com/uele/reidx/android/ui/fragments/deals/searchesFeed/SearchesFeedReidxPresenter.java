@@ -16,9 +16,10 @@
 
 package com.uele.reidx.android.ui.fragments.deals.searchesFeed;
 
-import com.uele.reidx.android.di.scope.PerActivity;
+import com.uele.reidx.android.ui.base.ReidxInteractor;
 import com.uele.reidx.android.ui.base.ReidxPresenter;
+import com.uele.reidx.android.ui.base.ReidxView;
 
-@PerActivity
-public interface SearchesFeedReidxPresenter<V extends SearchesFeedReidxView> extends ReidxPresenter<V> {
+public interface SearchesFeedReidxPresenter  <V extends ReidxView,
+        I extends ReidxInteractor>  extends ReidxPresenter<V, I> {
 }

@@ -16,25 +16,13 @@
 
 package com.uele.reidx.android.data;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+import java.util.Comparator;
 
-public final class DbOpenHelper
-        extends SQLiteOpenHelper {
-
-    private static final int VERSION = 1;
-
-    public DbOpenHelper(Context context) {
-        super(context, "", null /* factory */, VERSION);
-    }
+public class DealDateComparator
+        implements Comparator<Deal> {
 
     @Override
-    public void onCreate(SQLiteDatabase db) {
-    }
-
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+    public int compare(Deal lhs, Deal rhs) {
+        return lhs.getReleaseDateTheater().compareTo(rhs.getReleaseDateTheater());
     }
 }

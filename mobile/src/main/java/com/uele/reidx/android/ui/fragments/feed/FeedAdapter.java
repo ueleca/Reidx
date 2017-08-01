@@ -28,7 +28,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.uele.reidx.android.R;
-import com.uele.reidx.android.data.network.model.FeedResponse;
+import com.uele.reidx.android.data.network.model.PropertyResponse;
 import com.uele.reidx.android.ui.base.BaseViewHolder;
 import com.uele.reidx.android.utils.ReidxLogger;
 
@@ -45,9 +45,9 @@ public class FeedAdapter
     public static final int VIEW_TYPE_NORMAL = 1;
 
     private Callback mCallback;
-    private List<FeedResponse.Blog> mBlogResponseList;
+    private List<PropertyResponse.Blog> mBlogResponseList;
 
-    public FeedAdapter(List<FeedResponse.Blog> blogResponseList) {
+    public FeedAdapter(List<PropertyResponse.Blog> blogResponseList) {
         mBlogResponseList = blogResponseList;
     }
 
@@ -92,7 +92,7 @@ public class FeedAdapter
         }
     }
 
-    public void addItems(List<FeedResponse.Blog> blogList) {
+    public void addItems(List<PropertyResponse.Blog> blogList) {
         mBlogResponseList.addAll(blogList);
         notifyDataSetChanged();
     }
@@ -132,7 +132,7 @@ public class FeedAdapter
         public void onBind(int position) {
             super.onBind(position);
 
-            final FeedResponse.Blog blog = mBlogResponseList.get(position);
+            final PropertyResponse.Blog blog = mBlogResponseList.get(position);
 
             if (blog.getCoverImgUrl() != null) {
                 Glide.with(itemView.getContext())

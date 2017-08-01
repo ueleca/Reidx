@@ -16,7 +16,6 @@
 
 package com.uele.reidx.android.ui.fragments.deals.searchesFeed;
 
-import com.uele.reidx.android.data.DataManager;
 import com.uele.reidx.android.ui.base.BasePresenter;
 import com.uele.reidx.android.utils.rx.SchedulerProvider;
 
@@ -24,15 +23,16 @@ import javax.inject.Inject;
 
 import io.reactivex.disposables.CompositeDisposable;
 
-public class SearchesFeedPresenter<V extends SearchesFeedReidxView> extends BasePresenter<V>
-        implements SearchesFeedReidxPresenter<V> {
+public class SearchesFeedPresenter<V extends SearchesFeedReidxView,
+        I extends SearchesFeedReidxInteractor> extends BasePresenter<V, I>
+        implements SearchesFeedReidxPresenter<V, I> {
 
     private static final String TAG = SearchesFeedPresenter.class.getSimpleName();
 
     @Inject
-    public SearchesFeedPresenter(DataManager dataManager,
+    public SearchesFeedPresenter(I reidxInteractor,
                           SchedulerProvider schedulerProvider,
                           CompositeDisposable compositeDisposable) {
-        super(dataManager, schedulerProvider, compositeDisposable);
+        super(reidxInteractor, schedulerProvider, compositeDisposable);
     }
 }

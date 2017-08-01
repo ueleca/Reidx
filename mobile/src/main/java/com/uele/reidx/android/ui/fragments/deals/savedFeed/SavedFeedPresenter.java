@@ -16,7 +16,6 @@
 
 package com.uele.reidx.android.ui.fragments.deals.savedFeed;
 
-import com.uele.reidx.android.data.DataManager;
 import com.uele.reidx.android.ui.base.BasePresenter;
 import com.uele.reidx.android.ui.fragments.deals.DealsReidxPresenter;
 import com.uele.reidx.android.ui.fragments.deals.DealsReidxView;
@@ -26,15 +25,16 @@ import javax.inject.Inject;
 
 import io.reactivex.disposables.CompositeDisposable;
 
-public class SavedFeedPresenter<V extends DealsReidxView> extends BasePresenter<V>
-        implements DealsReidxPresenter<V> {
+public class SavedFeedPresenter<V extends DealsReidxView,
+        I extends SavedFeedReidxInteractor> extends BasePresenter<V, I>
+        implements DealsReidxPresenter<V, I> {
 
     private static final String TAG = SavedFeedPresenter.class.getSimpleName();
 
     @Inject
-    public SavedFeedPresenter(DataManager dataManager,
+    public SavedFeedPresenter(I reidxInteractor,
                           SchedulerProvider schedulerProvider,
                           CompositeDisposable compositeDisposable) {
-        super(dataManager, schedulerProvider, compositeDisposable);
+        super(reidxInteractor, schedulerProvider, compositeDisposable);
     }
 }

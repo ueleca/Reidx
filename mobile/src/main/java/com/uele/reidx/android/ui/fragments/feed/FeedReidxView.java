@@ -17,12 +17,12 @@
 package com.uele.reidx.android.ui.fragments.feed;
 
 
-import com.uele.reidx.android.data.network.model.FeedResponse;
+import com.uele.reidx.android.data.network.model.PropertyResponse;
 import com.uele.reidx.android.ui.base.ReidxView;
 
 import java.util.List;
 
 public interface FeedReidxView extends ReidxView {
 
-    void updateBlog(List<FeedResponse.Blog> blogList);
+    void updateBlog(List<PropertyResponse.Blog> blogList);
 }

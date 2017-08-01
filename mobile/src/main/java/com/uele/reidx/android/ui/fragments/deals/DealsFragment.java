@@ -49,7 +49,8 @@ public class DealsFragment
     DealsPagerAdapter mDealsPagerAdapter;
 
     @Inject
-    DealsReidxPresenter<DealsReidxView> mDealsPresenter;
+    DealsReidxPresenter<DealsReidxView, DealsReidxInteractor> mDealsPresenter;
+
 
     public static DealsFragment newInstance() {
         Bundle args = new Bundle();

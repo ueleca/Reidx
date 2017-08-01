@@ -21,7 +21,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class FeedResponse {
+public class PropertyResponse {
 
     @Expose
     @SerializedName("status_code")
@@ -62,9 +62,9 @@ public class FeedResponse {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof FeedResponse)) return false;
+        if (!(o instanceof PropertyResponse)) return false;
 
-        FeedResponse that = (FeedResponse) o;
+        PropertyResponse that = (PropertyResponse) o;
 
         if (!statusCode.equals(that.statusCode)) return false;
         if (!message.equals(that.message)) return false;

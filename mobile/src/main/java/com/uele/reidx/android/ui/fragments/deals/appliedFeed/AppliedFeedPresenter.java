@@ -16,7 +16,6 @@
 
 package com.uele.reidx.android.ui.fragments.deals.appliedFeed;
 
-import com.uele.reidx.android.data.DataManager;
 import com.uele.reidx.android.ui.base.BasePresenter;
 import com.uele.reidx.android.ui.fragments.deals.DealsPresenter;
 import com.uele.reidx.android.utils.rx.SchedulerProvider;
@@ -25,15 +24,16 @@ import javax.inject.Inject;
 
 import io.reactivex.disposables.CompositeDisposable;
 
-public class AppliedFeedPresenter<V extends AppliedFeedReidxView> extends BasePresenter<V>
-        implements AppliedFeedReidxPresenter<V> {
+public class AppliedFeedPresenter<V extends AppliedFeedReidxView,
+        I extends AppliedFeedReidxInteractor> extends BasePresenter<V, I>
+        implements AppliedFeedReidxPresenter<V, I> {
 
     private static final String TAG = DealsPresenter.class.getSimpleName();
 
     @Inject
-    public AppliedFeedPresenter(DataManager dataManager,
+    public AppliedFeedPresenter(I reidxInteractor,
                           SchedulerProvider schedulerProvider,
                           CompositeDisposable compositeDisposable) {
-        super(dataManager, schedulerProvider, compositeDisposable);
+        super(reidxInteractor, schedulerProvider, compositeDisposable);
     }
 }

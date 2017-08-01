@@ -25,7 +25,6 @@ import android.view.inputmethod.InputMethodManager;
 
 import com.uele.reidx.android.BuildConfig;
 import com.uele.reidx.android.R;
-import com.uele.reidx.android.data.DataManager;
 import com.uele.reidx.android.data.db.AppDbHelper;
 import com.uele.reidx.android.data.db.DbHelper;
 import com.uele.reidx.android.data.db.DbOpenHelper;

@@ -1,5 +1,6 @@
 /*
- * Copyright 2016 Brian Donaldson
+ * Copyright (C) 2017 Uele, Inc.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,8 +17,7 @@
 package com.uele.reidx.android.ui.fragments.dash.myDealFeed;
 
 import com.androidnetworking.error.ANError;
-import com.uele.reidx.android.data.DataManager;
-import com.uele.reidx.android.data.network.model.FeedResponse;
+import com.uele.reidx.android.data.network.model.DealsResponse;
 import com.uele.reidx.android.ui.base.BasePresenter;
 import com.uele.reidx.android.utils.rx.SchedulerProvider;
 
@@ -27,31 +27,32 @@ import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 
-public class MyDealsFeedPresenter<V extends MyDealsFeedReidxView> extends BasePresenter<V>
-        implements MyDealsFeedReidxPresenter<V> {
+public class MyDealsFeedPresenter<V extends MyDealsFeedReidxView,
+        I extends MyDealsFeedReidxInteractor> extends BasePresenter<V, I>
+        implements MyDealsFeedReidxPresenter<V, I> {
 
     private static final String TAG = MyDealsFeedPresenter.class.getSimpleName();
 
     @Inject
-    public MyDealsFeedPresenter(DataManager dataManager,
+    public MyDealsFeedPresenter(I reidxInteractor,
                                 SchedulerProvider schedulerProvider,
                                 CompositeDisposable compositeDisposable) {
-        super(dataManager, schedulerProvider, compositeDisposable);
+        super(reidxInteractor, schedulerProvider, compositeDisposable);
     }
 
     @Override
     public void onViewPrepared() {
         getReidxView().showLoading();
-        getCompositeDisposable().add(getDataManager()
-                .getBlogApiCall()
+        getCompositeDisposable().add(getInteractor()
+                .getDealsApiCall()
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
-                .subscribe(new Consumer<FeedResponse>() {
+                .subscribe(new Consumer<DealsResponse>() {
                     @Override
-                    public void accept(@NonNull FeedResponse feedResponse)
+                    public void accept(@NonNull DealsResponse dealsResponse)
                             throws Exception {
-                        if (feedResponse != null && feedResponse.getData() != null) {
-                            getReidxView().updateBlog(feedResponse.getData());
+                        if (dealsResponse != null && dealsResponse.getData() != null) {
+                            getReidxView().updateBlog(dealsResponse.getData());
                         }
                         getReidxView().hideLoading();
                     }

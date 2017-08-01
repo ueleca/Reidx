@@ -16,5 +16,26 @@
 
 package com.uele.reidx.android.ui.fragments.deals.appliedFeed;
 
-public class AppliedFeedAdapter {
+import android.support.v7.widget.RecyclerView;
+import android.view.ViewGroup;
+
+import com.uele.reidx.android.ui.base.BaseViewHolder;
+
+public class AppliedFeedAdapter
+        extends RecyclerView.Adapter<BaseViewHolder> {
+
+    @Override
+    public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return null;
+    }
+
+    @Override
+    public void onBindViewHolder(BaseViewHolder holder, int position) {
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return 0;
+    }
 }

@@ -16,7 +16,7 @@
 
 package com.uele.reidx.android.data;
 
-public class UserTest implements Comparable<UserTest> {
+public class UserEx implements Comparable<UserEx> {
     private String firstname;
     private String lastname;
     private String username;
@@ -73,12 +73,12 @@ public class UserTest implements Comparable<UserTest> {
     }
 
     @Override
-    public int compareTo(UserTest user) {
+    public int compareTo(UserEx user) {
         return this.getUsername().compareTo(user.getUsername());
     }
 
     @Override
     public boolean equals(Object o) {
-        return this.getUsername().equals(((UserTest) o).getUsername());
+        return this.getUsername().equals(((UserEx) o).getUsername());
     }
 }

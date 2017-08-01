@@ -19,5 +19,4 @@ import com.uele.reidx.android.ui.base.ReidxView;
 
 public interface MyDealsFeedReidxView extends ReidxView {
 
-
 }

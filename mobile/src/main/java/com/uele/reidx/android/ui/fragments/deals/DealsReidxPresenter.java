@@ -16,10 +16,10 @@
 
 package com.uele.reidx.android.ui.fragments.deals;
 
-import com.uele.reidx.android.di.scope.PerActivity;
+import com.uele.reidx.android.ui.base.ReidxInteractor;
 import com.uele.reidx.android.ui.base.ReidxPresenter;
+import com.uele.reidx.android.ui.base.ReidxView;
 
-@PerActivity
-public interface DealsReidxPresenter <V extends DealsReidxView> extends ReidxPresenter<V> {
-
+public interface DealsReidxPresenter <V extends ReidxView,
+        I extends ReidxInteractor> extends ReidxPresenter<V, I> {
 }

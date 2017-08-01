@@ -19,18 +19,18 @@ package com.uele.reidx.android.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Image
+public class ImageEx
         implements Parcelable {
 
     private String lowResolutionImgUrl;
     private String mediumResolutionImgUrl;
     private String highResolutionImgUrl;
 
-    public Image() {
+    public ImageEx() {
         // Empty constructor
     }
 
-    protected Image(Parcel in) {
+    protected ImageEx(Parcel in) {
         lowResolutionImgUrl = in.readString();
         mediumResolutionImgUrl = in.readString();
         highResolutionImgUrl = in.readString();
@@ -73,15 +73,15 @@ public class Image
     }
 
     @SuppressWarnings("unused")
-    public static final Parcelable.Creator<Image> CREATOR = new Parcelable.Creator<Image>() {
+    public static final Parcelable.Creator<ImageEx> CREATOR = new Parcelable.Creator<ImageEx>() {
         @Override
-        public Image createFromParcel(Parcel in) {
-            return new Image(in);
+        public ImageEx createFromParcel(Parcel in) {
+            return new ImageEx(in);
         }
 
         @Override
-        public Image[] newArray(int size) {
-            return new Image[size];
+        public ImageEx[] newArray(int size) {
+            return new ImageEx[size];
         }
     };
 }

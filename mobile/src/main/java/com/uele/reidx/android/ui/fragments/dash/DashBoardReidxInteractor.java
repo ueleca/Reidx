@@ -16,5 +16,7 @@
 
 package com.uele.reidx.android.ui.fragments.dash;
 
-public class DashBoardReidxInteractor {
+import com.uele.reidx.android.ui.base.ReidxInteractor;
+
+public interface DashBoardReidxInteractor extends ReidxInteractor {
 }

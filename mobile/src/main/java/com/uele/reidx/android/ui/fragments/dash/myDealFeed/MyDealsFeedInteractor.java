@@ -16,5 +16,11 @@
 
 package com.uele.reidx.android.ui.fragments.dash.myDealFeed;
 
-public class MyDealsFeedInteractor {
+import com.uele.reidx.android.data.network.model.DealsResponse;
+import com.uele.reidx.android.ui.base.ReidxInteractor;
+
+import io.reactivex.Observable;
+
+public interface MyDealsFeedInteractor extends ReidxInteractor {
+    Observable<DealsResponse> getDealsApiCall();
 }

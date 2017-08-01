@@ -14,9 +14,7 @@
  * limitations under the License.
  */
 
-package com.uele.reidx.android.data.comparator;
-
-import com.uele.reidx.android.data.Deal;
+package com.uele.reidx.android.data;
 
 import java.util.Comparator;
 

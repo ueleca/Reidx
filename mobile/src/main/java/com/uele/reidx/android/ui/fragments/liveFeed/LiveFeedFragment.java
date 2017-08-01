@@ -27,7 +27,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.uele.reidx.android.R;
-import com.uele.reidx.android.data.network.model.FeedResponse;
+import com.uele.reidx.android.data.network.model.PropertyResponse;
 import com.uele.reidx.android.di.component.ActivityComponent;
 import com.uele.reidx.android.ui.base.BaseFragment;
 
@@ -111,7 +111,7 @@ public class LiveFeedFragment
 
 
     @Override
-    public void updateBlog(List<FeedResponse.Blog> blogList) {
+    public void updateBlog(List<PropertyResponse.Blog> blogList) {
 
     }
 

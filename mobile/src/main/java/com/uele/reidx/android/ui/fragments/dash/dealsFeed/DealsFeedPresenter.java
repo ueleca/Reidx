@@ -17,8 +17,7 @@
 package com.uele.reidx.android.ui.fragments.dash.dealsFeed;
 
 import com.androidnetworking.error.ANError;
-import com.uele.reidx.android.data.DataManager;
-import com.uele.reidx.android.data.network.model.FeedResponse;
+import com.uele.reidx.android.data.network.model.PropertyResponse;
 import com.uele.reidx.android.ui.base.BasePresenter;
 import com.uele.reidx.android.utils.rx.SchedulerProvider;
 
@@ -28,28 +27,29 @@ import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 
-public class DealsFeedPresenter<V extends DealsFeedReidxView> extends BasePresenter<V>
-        implements DealsFeedReidxPresenter<V> {
+public class DealsFeedPresenter<V extends DealsFeedReidxView,
+        I extends DealsFeedReidxInteractor> extends BasePresenter<V, I>
+        implements DealsFeedReidxPresenter<V, I> {
 
     private static final String TAG = DealsFeedPresenter.class.getSimpleName();
 
     @Inject
-    public DealsFeedPresenter(DataManager dataManager,
+    public DealsFeedPresenter(I reidxInteractor,
                               SchedulerProvider schedulerProvider,
                               CompositeDisposable compositeDisposable) {
-        super(dataManager, schedulerProvider, compositeDisposable);
+        super(reidxInteractor, schedulerProvider, compositeDisposable);
     }
 
     @Override
     public void onViewPrepared() {
         getReidxView().showLoading();
-        getCompositeDisposable().add(getDataManager()
-                .getBlogApiCall()
+        getCompositeDisposable().add(getInteractor()
+                .getDealsApiCall()
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
-                .subscribe(new Consumer<FeedResponse>() {
+                .subscribe(new Consumer<PropertyResponse>() {
                     @Override
-                    public void accept(@NonNull FeedResponse feedResponse)
+                    public void accept(@NonNull PropertyResponse feedResponse)
                             throws Exception {
                         if (feedResponse != null && feedResponse.getData() != null) {
                             getReidxView().updateBlog(feedResponse.getData());

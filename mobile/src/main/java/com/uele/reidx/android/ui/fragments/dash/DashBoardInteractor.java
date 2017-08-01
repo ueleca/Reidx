@@ -16,5 +16,19 @@
 
 package com.uele.reidx.android.ui.fragments.dash;
 
-public class DashBoardInteractor {
+import com.uele.reidx.android.data.network.ApiHelper;
+import com.uele.reidx.android.data.prefs.PreferencesHelper;
+import com.uele.reidx.android.ui.base.BaseInteractor;
+
+import javax.inject.Inject;
+
+public class DashBoardInteractor extends BaseInteractor
+        implements DashBoardReidxInteractor {
+
+    @Inject
+    public DashBoardInteractor(PreferencesHelper preferencesHelper,
+                          ApiHelper apiHelper) {
+
+        super(preferencesHelper, apiHelper);
+    }
 }

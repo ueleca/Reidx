@@ -29,8 +29,13 @@ public final class ApiEndPoint {
     public static final String ENDPOINT_LOGOUT = BuildConfig.BASE_URL
             + "/588d161c100000a9072d2946";
 
+    public static final String ENDPOINT_PROPERTY = BuildConfig.BASE_URL
+            + "/5926ce9d11000096006ccb30";
+
+    public static final String ENDPOINT_DEAL = BuildConfig.BASE_URL
+            + "/5926c34212000035026871cd";
+
     private ApiEndPoint() {
         // This class is not publicly instantiable
     }
-
 }

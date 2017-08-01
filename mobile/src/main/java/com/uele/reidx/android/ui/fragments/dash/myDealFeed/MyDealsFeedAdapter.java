@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2017 Uele, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.uele.reidx.android.ui.fragments.dash.myDealFeed;
 
 import android.content.Intent;
@@ -12,7 +28,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.uele.reidx.android.R;
-import com.uele.reidx.android.data.network.model.FeedResponse;
+import com.uele.reidx.android.data.network.model.PropertyResponse;
 import com.uele.reidx.android.ui.base.BaseViewHolder;
 import com.uele.reidx.android.utils.ReidxLogger;
 
@@ -29,9 +45,9 @@ public class MyDealsFeedAdapter
     public static final int VIEW_TYPE_NORMAL = 1;
 
     private Callback mCallback;
-    private List<FeedResponse.Blog> mBlogResponseList;
+    private List<PropertyResponse.Blog> mBlogResponseList;
 
-    public MyDealsFeedAdapter(List<FeedResponse.Blog> blogResponseList) {
+    public MyDealsFeedAdapter(List<PropertyResponse.Blog> blogResponseList) {
         mBlogResponseList = blogResponseList;
     }
 
@@ -76,7 +92,7 @@ public class MyDealsFeedAdapter
         }
     }
 
-    public void addItems(List<FeedResponse.Blog> blogList) {
+    public void addItems(List<PropertyResponse.Blog> blogList) {
         mBlogResponseList.addAll(blogList);
         notifyDataSetChanged();
     }
@@ -116,7 +132,7 @@ public class MyDealsFeedAdapter
         public void onBind(int position) {
             super.onBind(position);
 
-            final FeedResponse.Blog blog = mBlogResponseList.get(position);
+            final PropertyResponse.Blog blog = mBlogResponseList.get(position);
 
             if (blog.getCoverImgUrl() != null) {
                 Glide.with(itemView.getContext())

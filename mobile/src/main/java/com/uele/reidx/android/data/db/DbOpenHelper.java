@@ -29,7 +29,8 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 @Singleton
-public class DbOpenHelper extends DaoMaster.OpenHelper {
+public class DbOpenHelper
+        extends DaoMaster.OpenHelper {
 
     @Inject
     public DbOpenHelper(@ApplicationContext Context context, @DatabaseInfo String name) {

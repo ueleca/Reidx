@@ -41,7 +41,8 @@ public class FavoriteFeedFragment
     private static final String TAG = "FavoriteFeedFragment";
 
     @Inject
-    FavoriteFeedReidxPresenter<FavoriteFeedReidxView> mFavoriteFeedPresenter;
+    FavoriteFeedReidxPresenter<FavoriteFeedReidxView,
+            FavouriteFeedReidxInteractor> mFavoriteFeedPresenter;
 
     @Inject
     FavoriteFeedAdapter mFavoriteFeedAdapter;

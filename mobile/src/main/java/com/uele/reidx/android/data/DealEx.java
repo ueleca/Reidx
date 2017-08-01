@@ -22,35 +22,37 @@ import android.os.Parcelable;
 import java.util.Date;
 
 
-public class Deal
+public class DealEx
         implements Parcelable {
 
     @SuppressWarnings("unused")
-    public static final Parcelable.Creator<Deal> CREATOR = new Parcelable.Creator<Deal>() {
+    public static final Parcelable.Creator<DealEx> CREATOR = new Parcelable.Creator<DealEx>() {
         @Override
-        public Deal createFromParcel(Parcel in) {
-            return new Deal(in);
+        public DealEx createFromParcel(Parcel in) {
+            return new DealEx(in);
         }
 
         @Override
-        public Deal[] newArray(int size) {
-            return new Deal[size];
+        public DealEx[] newArray(int size) {
+            return new DealEx[size];
         }
     };
+
     /*
-    public static final Parcelable.Creator<Deal> CREATOR
-        = new Parcelable.Creator<Deal>()
+    public static final Parcelable.Creator<DealEx> CREATOR
+        = new Parcelable.Creator<DealEx>()
     {
-    public Deal createFromParcel(Parcel in)
+    public DealEx createFromParcel(Parcel in)
     {
-        L.m("create from parcel :Deal");
-        return new Deal(in);
+        L.m("create from parcel :DealEx");
+        return new DealEx(in);
     }
 
-    public Deal[] newArray(int size) {
-        return new Deal[size];
+    public DealEx[] newArray(int size) {
+        return new DealEx[size];
     }
 };*/
+
     // private long id;
     private String title;
     private Date releaseDateTheater;
@@ -62,8 +64,8 @@ public class Deal
     private String urlReviews;
     private String urlSimilar;
     private int id;
-    private Image posterImage;
-    private Image backdropImage;
+    private ImageEx posterImage;
+    private ImageEx backdropImage;
     private Date releaseDate;
     private boolean adult;
     private Double voteAverage;
@@ -71,11 +73,11 @@ public class Deal
     private double popularity;
     private String overview;
 
-    public Deal() {
+    public DealEx() {
 
     }
 /*
-    public Deal(long id,
+    public DealEx(long id,
                  String title,
                  Date releaseDateTheater,
                  int audienceScore,
@@ -98,11 +100,11 @@ public class Deal
     }
     */
 
-    protected Deal(Parcel in) {
+    protected DealEx(Parcel in) {
         id = in.readInt();
         title = in.readString();
-        posterImage = (Image) in.readValue(Image.class.getClassLoader());
-        backdropImage = (Image) in.readValue(Image.class.getClassLoader());
+        posterImage = (ImageEx) in.readValue(ImageEx.class.getClassLoader());
+        backdropImage = (ImageEx) in.readValue(ImageEx.class.getClassLoader());
         long tmpReleaseDate = in.readLong();
         releaseDate = tmpReleaseDate != -1 ? new Date(tmpReleaseDate) : null;
         adult = in.readByte() != 0x00;
@@ -217,7 +219,7 @@ public class Deal
         @Override
         public void writeToParcel(Parcel dest, int flags)
         {
-            L.m("writeToParcel Deal");
+            L.m("writeToParcel DealEx");
             dest.writeLong(id);
             dest.writeString(title);
             dest.writeLong(releaseDateTheater == null ? -1 : releaseDateTheater.getTime());
@@ -230,6 +232,7 @@ public class Deal
             dest.writeString(urlSimilar);
         }
        */
+
     public Date getReleaseDate() {
         return releaseDate;
     }
@@ -278,19 +281,19 @@ public class Deal
         this.overview = overview;
     }
 
-    public Image getPosterImage() {
+    public ImageEx getPosterImage() {
         return posterImage;
     }
 
-    public void setPosterImage(Image posterImage) {
+    public void setPosterImage(ImageEx posterImage) {
         this.posterImage = posterImage;
     }
 
-    public Image getBackdropImage() {
+    public ImageEx getBackdropImage() {
         return backdropImage;
     }
 
-    public void setBackdropImage(Image backdropImage) {
+    public void setBackdropImage(ImageEx backdropImage) {
         this.backdropImage = backdropImage;
     }
 

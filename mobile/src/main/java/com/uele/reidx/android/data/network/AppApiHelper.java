@@ -17,10 +17,11 @@
 package com.uele.reidx.android.data.network;
 
 import com.rx2androidnetworking.Rx2AndroidNetworking;
-import com.uele.reidx.android.data.network.model.FeedResponse;
+import com.uele.reidx.android.data.network.model.DealsResponse;
 import com.uele.reidx.android.data.network.model.LoginRequest;
 import com.uele.reidx.android.data.network.model.LoginResponse;
 import com.uele.reidx.android.data.network.model.LogoutResponse;
+import com.uele.reidx.android.data.network.model.PropertyResponse;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -74,16 +75,27 @@ public class AppApiHelper
     }
 
     @Override
-    public Observable<FeedResponse> getBlogApiCall() {
-        return null;
-    }
-
-    @Override
     public Observable<LogoutResponse> doLogoutApiCall() {
         return Rx2AndroidNetworking.post(ApiEndPoint.ENDPOINT_LOGOUT)
                 .addHeaders(mApiHeader.getProtectedApiHeader())
                 .build()
                 .getObjectObservable(LogoutResponse.class);
+    }
+
+    @Override
+    public Observable<PropertyResponse> getPropertyApiCall() {
+        return Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_PROPERTY)
+                .addHeaders(mApiHeader.getProtectedApiHeader())
+                .build()
+                .getObjectObservable(PropertyResponse.class);
+    }
+
+    @Override
+    public Observable<DealsResponse> getDealsApiCall() {
+        return Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_DEAL)
+                .addHeaders(mApiHeader.getProtectedApiHeader())
+                .build()
+                .getObjectObservable(DealsResponse.class);
     }
 }
 

@@ -49,7 +49,8 @@ public class DashBoardFragment
     DashBoardPagerAdapter mDashBoardPagerAdapter;
 
     @Inject
-    DashBoardReidxPresenter<DashBoardReidxView> mDashBoardPresenter;
+    DashBoardReidxPresenter<DashBoardReidxView,
+            DashBoardReidxInteractor> mDashBoardPresenter;
 
     public static DashBoardFragment newInstance() {
         Bundle args = new Bundle();

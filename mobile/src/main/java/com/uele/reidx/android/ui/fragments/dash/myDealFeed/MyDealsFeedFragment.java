@@ -41,7 +41,8 @@ public class MyDealsFeedFragment
     private static final String TAG = "MyDealsFeedFragment";
 
     @Inject
-    MyDealsFeedReidxPresenter<MyDealsFeedReidxView> mMyDealFeedPresenter;
+    MyDealsFeedReidxPresenter<MyDealsFeedReidxView,
+            MyDealsFeedReidxInteractor> mMyDealFeedPresenter;
 
     @Inject
     MyDealsFeedAdapter mMyDealsFeedAdapter;

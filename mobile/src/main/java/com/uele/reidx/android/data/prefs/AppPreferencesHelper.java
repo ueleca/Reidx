@@ -19,7 +19,6 @@ package com.uele.reidx.android.data.prefs;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.uele.reidx.android.data.DataManager;
 import com.uele.reidx.android.di.PreferenceInfo;
 import com.uele.reidx.android.di.qualifier.ApplicationContext;
 import com.uele.reidx.android.utils.AppConstants;
@@ -96,7 +95,7 @@ public class AppPreferencesHelper
     }
 
     @Override
-    public void setCurrentUserLoggedInMode(DataManager.LoggedInMode mode) {
+    public void setCurrentUserLoggedInMode(AppConstants.LoggedInMode mode) {
         mPrefs.edit().putInt(PREF_KEY_USER_LOGGED_IN_MODE, mode.getType()).apply();
     }
 

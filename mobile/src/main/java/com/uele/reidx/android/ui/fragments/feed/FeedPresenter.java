@@ -17,8 +17,7 @@
 package com.uele.reidx.android.ui.fragments.feed;
 
 import com.androidnetworking.error.ANError;
-import com.uele.reidx.android.data.DataManager;
-import com.uele.reidx.android.data.network.model.FeedResponse;
+import com.uele.reidx.android.data.network.model.PropertyResponse;
 import com.uele.reidx.android.ui.base.BasePresenter;
 import com.uele.reidx.android.utils.rx.SchedulerProvider;
 
@@ -47,9 +46,9 @@ public class FeedPresenter<V extends FeedReidxView> extends BasePresenter<V>
                 .getBlogApiCall()
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
-                .subscribe(new Consumer<FeedResponse>() {
+                .subscribe(new Consumer<PropertyResponse>() {
                     @Override
-                    public void accept(@NonNull FeedResponse feedResponse)
+                    public void accept(@NonNull PropertyResponse feedResponse)
                             throws Exception {
                         if (feedResponse != null && feedResponse.getData() != null) {
                             getReidxView().updateBlog(feedResponse.getData());

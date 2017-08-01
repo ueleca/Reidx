@@ -15,14 +15,14 @@
 
 package com.uele.reidx.android.ui.fragments.liveFeed;
 
-import com.uele.reidx.android.data.network.model.FeedResponse;
+import com.uele.reidx.android.data.network.model.PropertyResponse;
 import com.uele.reidx.android.ui.base.ReidxView;
 
 import java.util.List;
 
 public interface LiveFeedReidxView extends ReidxView {
 
-    void updateBlog(List<FeedResponse.Blog> blogList);
+    void updateBlog(List<PropertyResponse.Blog> blogList);
 /*
         void renderBrokers(final List<Broker> brokers);
         void renderInvestors(final List<Investor> investors);

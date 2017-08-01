@@ -16,5 +16,11 @@
 
 package com.uele.reidx.android.ui.fragments.dash.favoriteFeed;
 
-public class FavouriteFeedInteractor {
+import com.uele.reidx.android.data.network.model.DealsResponse;
+import com.uele.reidx.android.ui.base.ReidxInteractor;
+
+import io.reactivex.Observable;
+
+public interface FavouriteFeedInteractor extends ReidxInteractor {
+    Observable<DealsResponse> getDealsApiCall();
 }

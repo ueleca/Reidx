@@ -14,12 +14,9 @@
  * limitations under the License.
  */
 
-package com.uele.reidx.android.ui.fragments.dash;
+package com.uele.reidx.android.ui.fragments.deals.viewedFeed;
 
 import com.uele.reidx.android.ui.base.ReidxInteractor;
-import com.uele.reidx.android.ui.base.ReidxPresenter;
-import com.uele.reidx.android.ui.base.ReidxView;
 
-public interface DashBoardReidxPresenter <V extends ReidxView,
-        I extends ReidxInteractor> extends ReidxPresenter<V, I> {
+public interface ViewedFeedReidxInteractor extends ReidxInteractor {
 }
